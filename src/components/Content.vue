@@ -1,17 +1,20 @@
 <template>
 	<div class="main">
-		<div v-for="(value, key) in this.items.filterMatches">
-			<ul class="matchCard">
-				<img
-					:src="require(`../assets/games/${value.game}_logo_32.svg`)"
-				/>
-				<li>{{ value.oddsA }} | {{ value.teamA }}</li>
-				<li>Tournament</li>
-				<li>{{ value.teamB }} | {{ value.oddsB }}</li>
-				<div class="details">></div>
-			</ul>
-		</div>
-		<footer>Lorem ipsum</footer>
+		<transition-group name="fadeLeftBig">
+			<div v-for="(value, key) in this.items.filterMatches" :key="value">
+				<ul class="matchCard" :class="value.game + 'Card'">
+					<img
+						:src="
+							require(`../assets/games/${value.game}_logo_32.svg`)
+						"
+					/>
+					<li>{{ value.oddsA }} | {{ value.teamA }}</li>
+					<li>Tournament</li>
+					<li>{{ value.teamB }} | {{ value.oddsB }}</li>
+					<div class="details">></div>
+				</ul>
+			</div>
+		</transition-group>
 	</div>
 </template>
 
@@ -22,10 +25,10 @@
 			...mapGetters(['items']),
 		},
 		methods: {
-			...mapActions(['displayAllMatches']),
+			...mapActions(['filterByType']),
 		},
 		beforeMount() {
-			this.displayAllMatches();
+			this.filterByType('esport');
 		},
 	};
 </script>
@@ -63,5 +66,14 @@
 	.details {
 		flex: 1;
 		align-self: center;
+	}
+
+	.lolCard:hover,
+	.dotaCard:hover,
+	.overwatchCard:hover,
+	.r6Card:hover,
+	.csCard:hover {
+		background-color: rgba(255, 255, 255, 0.1);
+		transition: 0.7s;
 	}
 </style>

@@ -1,25 +1,31 @@
 <template>
 	<div class="header">
 		<div class="logo">
-			<img
-				src="../assets/main_logo.svg"
-				alt="Lightning Bet Logo"
-				@click="displayAllMatches"
-			/>
+			<router-link to="/">
+				<img
+					src="../assets/main_logo.svg"
+					alt="Lightning Bet Logo"
+					@click="filterByType('esport')"
+				/>
+			</router-link>
 		</div>
 		<ul class="nav-area">
 			<li>
 				<router-link to="/">
-					<a href="#"><i class="fas fa-gamepad"></i><br />Esports</a>
+					<a href="#" @click="filterByType('esport')"
+						><i class="fas fa-gamepad"></i><br />Esports</a
+					>
 				</router-link>
 			</li>
 			<li>
 				<router-link to="/sport">
-					<a href="#"><i class="fas fa-futbol"></i><br />Sport</a>
+					<a href="#" @click="filterByType('sport')"
+						><i class="fas fa-futbol"></i><br />Sport</a
+					>
 				</router-link>
 			</li>
 			<li>
-				<router-link to="/games">
+				<router-link to="#">
 					<a href="#"><i class="fas fa-dice"></i><br />Games</a>
 				</router-link>
 			</li>
@@ -34,7 +40,7 @@
 	import { mapActions } from 'vuex';
 	export default {
 		methods: {
-			...mapActions(['displayAllMatches']),
+			...mapActions(['filterByType']),
 		},
 	};
 </script>
@@ -47,35 +53,6 @@
 		grid-template-columns: 1fr 4fr 1fr;
 	}
 
-	a {
-		color: white;
-		font-weight: 100;
-		letter-spacing: 2px;
-		text-decoration: none;
-		padding-top: 5px;
-		display: inline-block;
-		width: 100%;
-		text-align: center;
-	}
-	.header ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		display: flex;
-	}
-
-	.header li {
-		flex: 1;
-		font-size: 20px;
-	}
-
-	.header li:hover,
-	.deposit:hover {
-		background-color: rgba(75, 234, 255, 0.281);
-		border-radius: 20px;
-		transition: 0.5s;
-	}
-
 	.logo img {
 		background-size: cover;
 		background-position: center;
@@ -84,13 +61,52 @@
 	}
 
 	.logo img:hover {
-		background-color: rgba(75, 234, 255, 0.281);
-		border-radius: 20px;
+		background-color: rgba(255, 255, 255, 0.1);
 		transition: 0.5s;
+		border-radius: 4px;
+	}
+
+	.nav-area {
+		padding-top: 7px;
+		list-style: none;
+		display: flex;
+	}
+
+	.nav-area li {
+		flex: 1;
+		font-size: 20px;
+		color: white;
+		margin: 0px 10vh;
+		user-select: none;
+	}
+
+	.nav-area a:hover {
+		background-color: rgba(255, 255, 255, 0.1);
+		color: rgb(0, 225, 255);
+	}
+
+	a {
+		color: white;
+		font-weight: 100;
+		letter-spacing: 2px;
+		text-decoration: none;
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+		border-radius: 20px;
+		transition: 0.7s;
 	}
 
 	.deposit {
+		border-radius: 20px;
+		padding-top: 7px;
 		font-size: 20px;
 		text-align: center;
+		margin: 0px 5vh;
+	}
+
+	.deposit a:hover {
+		background-color: rgba(255, 255, 255, 0.1);
+		color: rgb(0, 225, 255);
 	}
 </style>

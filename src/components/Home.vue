@@ -2,7 +2,7 @@
 	<div class="home">
 		<app-header></app-header>
 		<app-left-panel></app-left-panel>
-		<router-view></router-view>
+		<app-content></app-content>
 		<app-bet-panel></app-bet-panel>
 	</div>
 </template>
@@ -30,9 +30,10 @@
 	html {
 		box-sizing: border-box;
 		background-color: rgb(36, 42, 50);
-		color: #fff;
+		color: rgb(191, 203, 223);
 		font-family: Roboto, sans-serif;
 		font-size: 14px;
+		font-weight: 500;
 	}
 
 	.home {

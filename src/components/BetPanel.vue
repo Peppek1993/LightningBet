@@ -1,7 +1,5 @@
 <template>
-	<div class="rightContainer">
-		asdf
-	</div>
+	<div class="rightContainer"></div>
 </template>
 
 <script>

@@ -1,10 +1,14 @@
 <template>
-    <div id="app"></div>
+	<app-home></app-home>
 </template>
 
 <script>
-export default {};
+	import Home from './components/Home.vue';
+	export default {
+		components: {
+			appHome: Home,
+		},
+	};
 </script>
 
-<style>
-</style>
+<style></style>

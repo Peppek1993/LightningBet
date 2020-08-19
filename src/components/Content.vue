@@ -1,17 +1,25 @@
 <template>
-	<div class="main">
+	<div
+		class="col-start-3 col-end-11 row-start-2 row-end-3 overflow-auto pt-24 pl-24"
+	>
 		<transition-group name="fadeLeftBig">
 			<div v-for="(value, key) in this.items.filterMatches" :key="value">
-				<ul class="matchCard" :class="value.game + 'Card'">
+				<ul
+					class="matchCard grid my-4 w-11/12 border-2 grid-cols-12 py-8"
+					:class="value.game + 'Card'"
+				>
 					<img
 						:src="
 							require(`../assets/games/${value.game}_logo_32.svg`)
 						"
+						class="col-start-1 col-end-2"
 					/>
-					<li>{{ value.oddsA }} | {{ value.teamA }}</li>
-					<li>Tournament</li>
-					<li>{{ value.teamB }} | {{ value.oddsB }}</li>
-					<div class="details">></div>
+					<li class="col-start-2 col-end-5">{{ value.teamA }}</li>
+					<li class="col-start-5 col-end-6">{{ value.oddsA }}</li>
+					<li class="col-start-6 col-end-8">Tournament</li>
+					<li class="col-start-8 col-end-9">{{ value.oddsB }}</li>
+					<li class="col-start-9 col-end-12">{{ value.teamB }}</li>
+					<div class="col-start-12 col-end-13">></div>
 				</ul>
 			</div>
 		</transition-group>
@@ -32,48 +40,3 @@
 		},
 	};
 </script>
-
-<style>
-	.main {
-		grid-area: 2 / 2 / 3 / 3;
-		overflow: auto;
-		padding-top: 10%;
-		padding-left: 10%;
-	}
-
-	.matchCard {
-		display: flex;
-		margin: 10px 0;
-		width: 100vh;
-		min-height: 100px;
-		background-color: rgb(43, 51, 61);
-		border-radius: 10px;
-		box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
-	}
-
-	.matchCard img {
-		align-self: center;
-		flex: 1;
-	}
-
-	.matchCard li {
-		flex: 2;
-		list-style: none;
-		max-height: 100%;
-		padding: 40px 0;
-	}
-
-	.details {
-		flex: 1;
-		align-self: center;
-	}
-
-	.lolCard:hover,
-	.dotaCard:hover,
-	.overwatchCard:hover,
-	.r6Card:hover,
-	.csCard:hover {
-		background-color: rgba(255, 255, 255, 0.1);
-		transition: 0.7s;
-	}
-</style>

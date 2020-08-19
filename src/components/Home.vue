@@ -1,5 +1,5 @@
 <template>
-	<div class="home">
+	<div class="h-screen grid grid-cols-12 grid-rows-layout">
 		<app-header></app-header>
 		<app-left-panel></app-left-panel>
 		<app-content></app-content>
@@ -22,24 +22,4 @@
 	};
 </script>
 
-<style>
-	* {
-		margin: 0;
-		padding: 0;
-	}
-	html {
-		box-sizing: border-box;
-		background-color: rgb(36, 42, 50);
-		color: rgb(191, 203, 223);
-		font-family: Roboto, sans-serif;
-		font-size: 14px;
-		font-weight: 500;
-	}
-
-	.home {
-		display: grid;
-		grid-template-columns: 1fr 4fr 1fr;
-		grid-template-rows: 60px 1fr;
-		height: 100vh;
-	}
-</style>
+<style></style>

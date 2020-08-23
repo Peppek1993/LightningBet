@@ -182,6 +182,64 @@ export default new Vuex.Store({
             },
         ],
         filterMatches: [],
+        esportDisciplines: [{
+                name: 'League of Legends',
+                tag: 'lol',
+                color: 'border-green-400'
+            },
+            {
+                name: 'CS:GO',
+                tag: 'cs',
+                color: 'border-blue-400'
+            },
+            {
+                name: 'Overwatch',
+                tag: 'overwatch',
+                color: 'border-yellow-300'
+            },
+            {
+                name: 'Dota 2',
+                tag: 'dota',
+                color: 'border-red-500'
+            },
+            {
+                name: 'Rainbow Six',
+                tag: 'r6',
+                color: 'border-orange-400'
+            }
+        ],
+        sportDisciplines: [{
+                name: 'Quidditch',
+                tag: 'quidditch',
+                color: 'border-yellow-400'
+            },
+            {
+                name: 'Ice Hockey',
+                tag: 'ice_hockey',
+                color: 'border-teal-400'
+            },
+            {
+                name: 'Volleyball',
+                tag: 'volleyball',
+                color: 'border-pink-400'
+            },
+            {
+                name: 'Basketball',
+                tag: 'basketball',
+                color: 'border-orange-400'
+            },
+            {
+                name: 'Table Tennis',
+                tag: 'table_tennis',
+                color: 'border-purple-600'
+            },
+            {
+                name: 'American Football',
+                tag: 'american_football',
+                color: 'border-orange-900'
+            },
+        ]
+
 
     },
     getters: {
@@ -191,15 +249,13 @@ export default new Vuex.Store({
     },
     mutations: {
         filterByGame(state, payload) {
-            let allMatches = this.state.upcomingEsportMatches;
-            let filteredMatches = allMatches.filter(function (match) {
+            let filteredMatches = this.state.upcomingEsportMatches.filter(function (match) {
                 return match.game == payload;
             })
             this.state.filterMatches = filteredMatches;
         },
         filterByType(state, payload) {
-            let allMatches = this.state.upcomingEsportMatches;
-            let filteredMatches = allMatches.filter(function (match) {
+            let filteredMatches = this.state.upcomingEsportMatches.filter(function (match) {
                 return match.type == payload;
             })
             this.state.filterMatches = filteredMatches;

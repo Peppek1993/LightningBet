@@ -1,22 +1,20 @@
-import Vue from 'vue'
-import App from './App.vue'
-import VueRouter from 'vue-router'
-import store from './store'
-import {
-    routes
-} from './router/index.js'
-import '@/assets/css/style.css'
+import Vue from 'vue';
+import App from './App.vue';
+import VueRouter from 'vue-router';
+import store from './store';
+import { routes } from './router/index.js';
+import '@/assets/css/style.css';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
-
+Vue.use(require('vue-moment'));
 export const router = new VueRouter({
-    routes,
-    mode: 'history'
+	routes,
+	mode: 'history',
 });
 new Vue({
-    router,
-    store,
-    render: h => h(App)
-}).$mount('#app')
+	router,
+	store,
+	render: (h) => h(App),
+}).$mount('#app');

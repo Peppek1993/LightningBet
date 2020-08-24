@@ -2,4 +2,19 @@
 
 @tailwind components;
 
+.menuItem {
+    @apply h-12;
+    @apply duration-300;
+    @apply cursor-pointer;
+    @apply items-center;
+    @apply px-4;
+    @apply flex;
+}
+
+.menuItem:hover {
+    @apply border-l-8;
+    @apply border-white;
+    @apply bg-gray-600;
+}
+
 @tailwind utilities;

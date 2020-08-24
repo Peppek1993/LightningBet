@@ -1,7 +1,7 @@
 <template>
     <div class="col-start-1 col-end-13 row-start-1 row-end-2 grid grid-cols-12 z-50 shadow-layout">
         <div class="col-start-1 col-end-3">
-            <router-link to="/">
+            <router-link to="/esport">
                 <img
                     src="../assets/main_logo.svg"
                     alt="Lightning Bet Logo"
@@ -12,7 +12,7 @@
         </div>
         <ul class="flex text-xl">
             <li class="mx-32 text-center">
-                <router-link to="/">
+                <router-link to="/esport">
                     <a href="#" @click="filterByType('esport')">
                         <i class="fas fa-gamepad"></i>
                         <br />Esports

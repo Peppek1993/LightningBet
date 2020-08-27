@@ -1,5 +1,5 @@
 <template>
-    <div class="col-start-1 col-end-3 flex flex-col shadow-layoutleft">
+    <div class="col-start-1 col-end-2 flex flex-col shadow-layoutleft w-56">
         <div class="flex flex-col flex-flex10 bg-gray-800">
             <div v-for="discipline in decideCategory()">
                 <router-link :to="discipline.type">

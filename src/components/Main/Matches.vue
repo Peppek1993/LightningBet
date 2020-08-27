@@ -2,21 +2,31 @@
     <div class="col-start-3 col-end-11 row-start-2 row-end-3 overflow-auto pt-24 pl-24">
         <transition-group name="fadeLeftBig">
             <div v-for="match in items.filterMatches" :key="match">
-                <ul class="grid my-4 w-11/12 border-2 grid-cols-12 py-8">
-                    <img
-                        :src="require(`../../assets/games/${match.game}_logo_32.svg`)"
-                        class="col-start-1 col-end-2"
-                    />
-                    <li class="col-start-3 col-end-4">
-                        <img :src="require(`../../assets/clg.png`)" class="w-10 h-10" />
+                <ul class="flex my-4 w-11/12 border-2">
+                    <li class>
+                        <img
+                            :src="require(`../../assets/games/${match.game}_logo_32.svg`)"
+                            class="w-8 h-8"
+                        />
                     </li>
-                    <li class="col-start-5 col-end-6">{{ match.oddsA }}</li>
-                    <li class="col-start-6 col-end-8">Tournament</li>
-                    <li class="col-start-8 col-end-9">{{ match.oddsB }}</li>
-                    <li class="col-start-9 col-end-12">
-                        <img :src="require(`../../assets/clg.png`)" class="w-10 h-10" />
+                    <li class>
+                        <img
+                            :src="require(`../../assets/teams/${match.game}/${match.teamA}.webp`)"
+                            class="w-16 h-16"
+                        />
+                        {{match.nameA}}
                     </li>
-                    <div class="col-start-12 col-end-13">></div>
+                    <li class>{{ match.oddsA }}</li>
+                    <li class>Tournament</li>
+                    <li class>{{ match.oddsB }}</li>
+                    <li class>
+                        <img
+                            :src="require(`../../assets/teams/${match.game}/${match.teamB}.webp`)"
+                            class="w-16 h-16"
+                        />
+                        {{match.nameB}}
+                    </li>
+                    <div class>></div>
                 </ul>
             </div>
         </transition-group>

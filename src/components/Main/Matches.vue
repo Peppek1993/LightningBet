@@ -1,33 +1,38 @@
 <template>
-    <div class="col-start-3 col-end-11 row-start-2 row-end-3 overflow-auto pt-24 pl-24">
+    <div class="row-start-2 row-end-3 overflow-auto pt-24">
         <transition-group name="fadeLeftBig">
             <div v-for="match in items.filterMatches" :key="match">
-                <ul class="flex my-4 w-11/12 border-2">
-                    <li class>
+                <div class="matchesWrapper my-4 rounded-lg px-12">
+                    <div class="py-8 px-6 border-2 rounded-lg bg-gray-500">
                         <img
                             :src="require(`../../assets/games/${match.game}_logo_32.svg`)"
                             class="w-8 h-8"
                         />
-                    </li>
-                    <li class>
+                    </div>
+                    <ul class="matchWrapper bg-gray-700">
+                        <li class="col-start-1 col-end-2">{{match.nameA}}</li>
+                        <li class="col-start-2 col-end-3 w-16 h-16 py-4 pl-2">
+                            <img
+                                :src="require(`../../assets/teams/${match.game}/${match.teamA}.webp`)"
+                            />
+                        </li>
+                        <li class="col-start-3 col-end-4">{{ match.oddsA }}</li>
+                        <li class="col-start-4 col-end-5">Tournament</li>
+                        <li class="col-start-5 col-end-6">{{ match.oddsB }}</li>
+                        <li class="col-start-6 col-end-7 w-16 h-16">
+                            <img
+                                :src="require(`../../assets/teams/${match.game}/${match.teamB}.webp`)"
+                            />
+                        </li>
+                        <li class="col-start-7 col-end-8">{{match.nameB}}</li>
+                    </ul>
+                    <div class="py-8 px-6 border-2 rounded-lg bg-gray-500">
                         <img
-                            :src="require(`../../assets/teams/${match.game}/${match.teamA}.webp`)"
-                            class="w-16 h-16"
+                            :src="require(`../../assets/games/${match.game}_logo_32.svg`)"
+                            class="w-8 h-8"
                         />
-                        {{match.nameA}}
-                    </li>
-                    <li class>{{ match.oddsA }}</li>
-                    <li class>Tournament</li>
-                    <li class>{{ match.oddsB }}</li>
-                    <li class>
-                        <img
-                            :src="require(`../../assets/teams/${match.game}/${match.teamB}.webp`)"
-                            class="w-16 h-16"
-                        />
-                        {{match.nameB}}
-                    </li>
-                    <div class>></div>
-                </ul>
+                    </div>
+                </div>
             </div>
         </transition-group>
     </div>
@@ -36,6 +41,11 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 export default {
+    data() {
+        return {
+            test: true,
+        };
+    },
     computed: {
         ...mapGetters(["items"]),
     },
@@ -47,3 +57,16 @@ export default {
     },
 };
 </script>
+
+
+<style>
+.matchesWrapper {
+    display: grid;
+    grid-template-columns: 5rem 1fr 5rem;
+}
+.matchWrapper {
+    display: grid;
+    grid-template-columns: 1fr 5rem 1fr 5rem 1fr 1fr 5rem;
+    min-width: 100%;
+}
+</style>

@@ -255,6 +255,8 @@ export default new Vuex.Store({
                 type: '/sport'
             },
         ],
+        leftPanelHidden: true,
+        rightPanelHidden: false,
     },
     getters: {
         items: (state) => {

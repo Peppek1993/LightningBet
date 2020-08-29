@@ -1,6 +1,6 @@
 <template>
     <router-view
-        :class="{'col-start-2': !items.leftPanelHidden, 'col-start-3': items.leftPanelHidden, 'col-end-4': !items.rightPanelHidden, 'col-end-5': items.rightPanelHidden}"
+        class="col-start-1 col-end-6 sm:col-start-2 sm:col-end-5 lg:col-start-3 lg:col-end-4"
     ></router-view>
 </template>
 

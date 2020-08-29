@@ -10,11 +10,13 @@
                 />
             </router-link>
         </div>
-        <div class="flex col-start-2 col-end-3 items-center md:justify-start sm:justify-start">
+        <div
+            class="flex col-start-2 col-end-3 items-center justify-start sm:justify-center md:justify-start"
+        >
             <router-link to="/esport">
                 <div
                     @click="filterByType('esport')"
-                    class="text-center hover:bg-gray-800 duration-500 py-3 px-2 md:text-xl sm:text-sm tracking-wider hover:text-blue-500 cursor-pointer"
+                    class="text-center hover:bg-gray-800 duration-500 px-4 py-3 rounded-md md:text-xl sm:text-sm tracking-wide hover:text-blue-500 cursor-pointer"
                 >
                     <i class="fas fa-gamepad"></i>
                     Esports
@@ -23,23 +25,25 @@
             <router-link to="/sport">
                 <div
                     @click="filterByType('sport')"
-                    class="text-center hover:bg-gray-800 duration-500 py-3 px-3 md:text-xl sm:text-sm tracking-wider hover:text-blue-500 cursor-pointer"
+                    class="text-center hover:bg-gray-800 duration-500 px-4 py-3 rounded-md md:text-xl sm:text-sm tracking-wide hover:text-blue-500 cursor-pointer"
                 >
                     <i class="fas fa-futbol"></i>
                     Sport
                 </div>
             </router-link>
             <div
-                class="text-center hover:bg-gray-800 duration-500 py-3 px-2 md:text-xl sm:text-sm tracking-wider hover:text-blue-500 cursor-pointer"
+                class="text-center hover:bg-gray-800 duration-500 px-4 py-3 rounded-md md:text-xl sm:text-sm tracking-wide hover:text-blue-500 cursor-pointer"
             >
                 <i class="fas fa-dice"></i>
                 Games
             </div>
         </div>
-        <div class="text-xl col-start-3 col-end-4 flex justify-center items-center">
+        <div
+            class="text-sm col-start-3 col-end-4 fixed right-0 py-5 sm:py-5 md:py-4 pr-2 justify-center items-center md:text-xl sm:text-sm"
+        >
             <a
                 href="#"
-                class="hover:bg-gray-800 duration-500 p-2 rounded-lg border-2 border-blue-500 hover:text-blue-500 cursor-pointer"
+                class="hover:bg-gray-800 duration-500 p-2 rounded-lg border border-teal-500 hover:text-blue-500 cursor-pointer"
             >
                 <i class="fas fa-coins"></i>
                 Deposit
@@ -60,6 +64,6 @@ export default {
 <style>
 .headerWrapper {
     display: grid;
-    grid-template-columns: 14rem 1fr 14rem;
+    grid-template-columns: 14rem 1fr 5rem;
 }
 </style>

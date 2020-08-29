@@ -1,9 +1,6 @@
 <template>
     <div>
-        <div
-            v-show="items.leftPanelHidden"
-            class="col-start-1 col-end-3 flex flex-col shadow-layoutleft w-56 h-full"
-        >
+        <div class="col-start-1 col-end-3 hidden lg:flex flex-col shadow-layoutleft w-56 h-full">
             <div class="flex flex-col flex-flex10 bg-gray-800">
                 <div v-for="discipline in decideCategory()">
                     <router-link :to="discipline.type">
@@ -55,15 +52,10 @@
                 <i class="fab fa-facebook py-4"></i>
                 <i class="fab fa-linkedin py-4"></i>
                 <i class="fab fa-instagram py-4"></i>
-                <i
-                    class="fas fa-angle-double-left py-4"
-                    @click="items.leftPanelHidden = !items.leftPanelHidden"
-                ></i>
             </div>
         </div>
         <div
-            v-show="!items.leftPanelHidden"
-            class="col-start-1 col-end-2 flex flex-col shadow-layoutleft w-16 h-full"
+            class="col-start-1 col-end-2 hidden sm:flex lg:hidden flex-col shadow-layoutleft w-16 h-full"
         >
             <div class="flex flex-col flex-flex10 bg-gray-800">
                 <div v-for="discipline in decideCategory()">
@@ -111,10 +103,10 @@
                 </router-link>
             </div>
             <div class="bg-gray-800 flex justify-around">
-                <i
-                    class="fas fa-angle-double-right py-4"
-                    @click="items.leftPanelHidden = !items.leftPanelHidden"
-                ></i>
+                <i class="fab fa-github py-4"></i>
+                <i class="fab fa-facebook py-4"></i>
+                <i class="fab fa-linkedin py-4"></i>
+                <i class="fab fa-instagram py-4"></i>
             </div>
         </div>
     </div>

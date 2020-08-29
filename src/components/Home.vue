@@ -23,23 +23,6 @@ export default {
     computed: {
         ...mapGetters(["items"]),
     },
-    mounted() {
-        this.$nextTick(function () {
-            window.addEventListener("resize", this.getWindowWidth);
-            this.getWindowWidth();
-        });
-    },
-    methods: {
-        getWindowWidth(event) {
-            if (document.documentElement.clientWidth < 1024) {
-                this.items.leftPanelHidden = false;
-                this.items.rightPanelHidden = true;
-            }
-        },
-    },
-    beforeDestroy() {
-        window.removeEventListener("resize", this.getWindowWidth);
-    },
 };
 </script>
 

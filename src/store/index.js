@@ -7,6 +7,7 @@ export default new Vuex.Store({
     state: {
         upcomingMatches: [{
                 game: 'lol',
+                color: 'bg-green-400',
                 teamA: 'top_esports',
                 nameA: 'Top Esports',
                 teamB: 'jd_gaming',
@@ -17,6 +18,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'cs',
+                color: 'bg-blue-400',
                 teamA: 'avez',
                 nameA: 'Avez Esports',
                 teamB: 'evil_geniuses',
@@ -27,6 +29,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'dota',
+                color: 'bg-blue-400',
                 teamA: 'sparking_arrow_gaming',
                 nameA: 'Sparking Arrow Gaming',
                 teamB: 'natus_vincere',
@@ -37,6 +40,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'overwatch',
+                color: 'bg-blue-400',
                 teamA: 'angry_titans',
                 nameA: 'Angry Titans',
                 teamB: 'ldlc_ol',
@@ -47,6 +51,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'r6',
+                color: 'bg-blue-400',
                 teamA: 'liquid',
                 nameA: 'Team Liquid',
                 teamB: 'gamerlegion',
@@ -57,6 +62,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'lol',
+                color: 'bg-green-400',
                 teamA: 'afreeca_freecs',
                 nameA: 'Afreeca Freecs',
                 teamB: 'gen_g',
@@ -67,6 +73,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'lol',
+                color: 'bg-green-400',
                 teamA: 'sprout',
                 nameA: 'Team Sprout',
                 teamB: 't1',
@@ -77,6 +84,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'cs',
+                color: 'bg-blue-400',
                 teamA: 'forze',
                 nameA: 'ForZe',
                 teamB: 'hellraisers',
@@ -87,6 +95,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'dota',
+                color: 'bg-blue-400',
                 teamA: 'alliance',
                 nameA: 'Team Alliance',
                 teamB: 'aster_aries',
@@ -97,6 +106,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'overwatch',
+                color: 'bg-blue-400',
                 teamA: 'mibr',
                 nameA: 'MIBR',
                 teamB: 'young_and_beautiful',
@@ -107,6 +117,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'r6',
+                color: 'bg-blue-400',
                 teamA: 'heroic',
                 nameA: 'Team Heroic',
                 teamB: 'k1ck_neosurf',
@@ -117,6 +128,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'quidditch',
+                color: 'bg-blue-400',
                 teamA: 'gryffindor',
                 nameA: 'Gryffindor',
                 teamB: 'hufflepuff',
@@ -127,6 +139,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'basketball',
+                color: 'bg-blue-400',
                 teamA: 'boston_celtics',
                 nameA: 'Boston Celtics',
                 teamB: 'dallas_mavericks',
@@ -137,6 +150,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'ice_hockey',
+                color: 'bg-blue-400',
                 teamA: 'boston_bruins',
                 nameA: 'Boston Bruins',
                 teamB: 'colorado_avalanche',
@@ -147,6 +161,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'quidditch',
+                color: 'bg-blue-400',
                 teamA: 'slytherin',
                 nameA: 'Slytherin',
                 teamB: 'ravenclaw',
@@ -157,6 +172,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'lol',
+                color: 'bg-green-400',
                 teamA: 'misfits_premier',
                 nameA: 'Misfits Premier',
                 teamB: 'schalke_04_evolution',
@@ -167,6 +183,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'ice_hockey',
+                color: 'bg-blue-400',
                 teamA: 'dallas_stars',
                 nameA: 'Dallas Stars',
                 teamB: 'new_york_islanders',
@@ -177,6 +194,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'ice_hockey',
+                color: 'bg-blue-400',
                 teamA: 'philadelphia_flyers',
                 nameA: 'Philadelphia Flyers',
                 teamB: 'tampa_bay_lightning',
@@ -255,8 +273,6 @@ export default new Vuex.Store({
                 type: '/sport'
             },
         ],
-        leftPanelHidden: true,
-        rightPanelHidden: false,
     },
     getters: {
         items: (state) => {

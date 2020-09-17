@@ -2,9 +2,6 @@ module.exports = {
     purge: [],
     theme: {
         extend: {
-            gridTemplateRows: {
-                'layout': '60px 1fr'
-            },
             boxShadow: {
                 'layout': '4px 4px 6px rgba(0, 0, 0, 0.3)',
                 'layoutright': '-3px 0px 6px rgba(0, 0, 0, 0.3)',
@@ -12,11 +9,15 @@ module.exports = {
             },
             flex: {
                 'flex10': '10'
-            }
+            },
+            gridTemplateColumns: {
+                'headerWrapper': '14rem 1fr 14rem',
+            },
         },
     },
     variants: {
-        borderWidth: ['hover']
+        borderWidth: ['hover'],
+        textColor: ['active']
     },
     plugins: [],
 }

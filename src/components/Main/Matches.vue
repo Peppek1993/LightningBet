@@ -1,107 +1,229 @@
 <template>
-    <div class="row-start-2 row-end-3 overflow-auto py-4 sm:py-24 px-6">
-        <div class="flex sm:hidden justify-between">
-            <div v-for="discipline in decideCategory()">
-                <router-link :to="discipline.type">
-                    <div
-                        @click="filterByGame(discipline.tag)"
-                        class="hover:bg-gray-600 hover:bg-opacity-25 border rounded-lg px-4 cursor-pointer duration-300"
-                        :class="discipline.color"
-                    >
-                        <img
-                            :src="
-							require(`../../assets/games/${discipline.tag}_logo_32.svg`)
-						"
-                            class="w-12 h-12 p-2"
-                        />
-                    </div>
-                </router-link>
-            </div>
-        </div>
-        <transition-group name="fadeLeftBig">
-            <div v-for="match in items.filterMatches" :key="match">
-                <div class="matchesWrapper my-4 rounded-lg border border-teal-200">
-                    <div class="py-8 px-6 rounded-sm bg-gray-500" :class="match.color">
-                        <img
-                            :src="require(`../../assets/games/${match.game}_logo_32.svg`)"
-                            class="w-8 h-8"
-                        />
-                    </div>
-                    <ul class="min-w-full grid grid-cols-4 bg-gray-700">
-                        <li
-                            class="col-start-1 col-end-2 text-center flex flex-col justify-center items-center"
-                        >
-                            <div>{{match.nameA}}</div>
-                            <button
-                                class="bg-gray-900 w-16 py-1 rounded-md border border-yellow-200 duration-500 hover:bg-yellow-300 hover:text-black"
-                            >{{match.oddsA}}</button>
-                        </li>
-                        <li class="col-start-2 col-end-3 flex justify-center items-center">
-                            <img
-                                :src="require(`../../assets/teams/${match.game}/${match.teamA}.webp`)"
-                                class="w-16 h-16"
-                            />
-                        </li>
-                        <li class="col-start-3 col-end-4 flex justify-center items-center">
-                            <img
-                                :src="require(`../../assets/teams/${match.game}/${match.teamB}.webp`)"
-                                class="w-16 h-16"
-                            />
-                        </li>
-                        <li
-                            class="col-start-4 col-end-5 text-center flex flex-col justify-center items-center"
-                        >
-                            <div>{{match.nameB}}</div>
-                            <button
-                                class="bg-gray-900 w-16 py-1 rounded-md border border-red-200 duration-500 hover:bg-red-300 hover:text-black"
-                            >{{match.oddsB}}</button>
-                        </li>
-                    </ul>
-                    <div class="py-8 px-6 rounded-sm bg-gray-500" :class="match.color">
-                        <img
-                            :src="require(`../../assets/games/${match.game}_logo_32.svg`)"
-                            class="w-8 h-8"
-                        />
-                    </div>
-                </div>
-            </div>
-        </transition-group>
-    </div>
+	<div class="row-start-2 row-end-3 overflow-auto py-4 sm:py-24 pb-20">
+		<div class="flex sm:hidden justify-between">
+			<div v-for="discipline in decideCategory()">
+				<router-link :to="discipline.type">
+					<div
+						@click="filterByGame(discipline.tag)"
+						class="hover:bg-gray-600 hover:bg-opacity-25 border rounded-lg px-4 cursor-pointer duration-300"
+						:class="discipline.color"
+					>
+						<img
+							:src="
+								require(`../../assets/games/${discipline.tag}_logo_32.svg`)
+							"
+							class="w-12 h-12 p-2"
+						/>
+					</div>
+				</router-link>
+			</div>
+		</div>
+		<transition-group name="fadeLeftBig" mode="out-in">
+			<div
+				v-for="(match, index) in items.filterMatches"
+				:key="match.id"
+				class="px-6"
+			>
+				<div
+					class="matchesWrapper my-4 rounded-lg border border-teal-200"
+				>
+					<div
+						class="py-8 px-6 rounded-sm bg-gray-500"
+						:class="match.color"
+					>
+						<img
+							:src="
+								require(`../../assets/games/${match.game}_logo_32.svg`)
+							"
+							class="w-8 h-8"
+						/>
+					</div>
+					<ul class="min-w-full grid grid-cols-4 bg-gray-700">
+						<li
+							class="col-start-1 col-end-2 text-center flex flex-col justify-center items-center"
+						>
+							<div>{{ match.nameA }}</div>
+							<button
+								class="bg-gray-900 w-16 py-1 rounded-md border border-yellow-200 duration-500 hover:bg-yellow-300 hover:text-black"
+								@click="showMatchModalA(index)"
+							>
+								{{ match.oddsA }}
+							</button>
+						</li>
+						<li
+							class="col-start-2 col-end-3 flex justify-center items-center"
+						>
+							<img
+								:src="
+									require(`../../assets/teams/${match.game}/${match.teamA}.png`)
+								"
+								class="w-16 h-16"
+							/>
+						</li>
+						<li
+							class="col-start-3 col-end-4 flex justify-center items-center"
+						>
+							<img
+								:src="
+									require(`../../assets/teams/${match.game}/${match.teamB}.png`)
+								"
+								class="w-16 h-16"
+							/>
+						</li>
+						<li
+							class="col-start-4 col-end-5 text-center flex flex-col justify-center items-center"
+						>
+							<div>{{ match.nameB }}</div>
+							<button
+								@click="showMatchModalB(index)"
+								class="bg-gray-900 w-16 py-1 rounded-md border border-red-200 duration-500 hover:bg-red-300 hover:text-black"
+							>
+								{{ match.oddsB }}
+							</button>
+						</li>
+					</ul>
+					<div
+						class="py-8 px-6 rounded-sm bg-gray-500"
+						:class="match.color"
+					>
+						<img
+							:src="
+								require(`../../assets/games/${match.game}_logo_32.svg`)
+							"
+							class="w-8 h-8"
+						/>
+					</div>
+				</div>
+			</div>
+		</transition-group>
+		<div
+			class="flex sm:hidden fixed bottom-0 bg-red-500 w-full h-20 col-start-3 col-end-4"
+		>
+			asdf
+		</div>
+		<t-modal header="Deposit funds" v-model="matchModal" class="p-10">
+			<div class="flex-col justify-around text-center h-full">
+				<p>
+					Team name:
+					{{
+						items.filterMatches[this.matchNumber][
+							`name${activeTeam}`
+						]
+					}}
+				</p>
+				<div>
+					Bet odds:
+					{{
+						items.filterMatches[this.matchNumber][
+							`odds${activeTeam}`
+						]
+					}}
+				</div>
+				<div class="flex justify-center">
+					<p class="pr-2">Enter bet amount</p>
+					<input
+						type="number"
+						placeholder="$"
+						class="text-black w-16 h-6 rounded-md outline-none"
+						v-model="betAmount"
+					/>
+				</div>
+				<div>
+					Possible return:
+					{{
+						items.filterMatches[this.matchNumber][
+							`odds${activeTeam}`
+						] * betAmount
+					}}
+				</div>
+			</div>
+			<template v-slot:footer>
+				<div class="flex justify-between">
+					<button @click="matchModal = !matchModal">Cancel</button>
+					<button @click="placeABet">Place a bet</button>
+				</div>
+			</template>
+		</t-modal>
+		<div
+			v-if="matchModal"
+			class="absolute z-30 inset-0 opacity-50 bg-black"
+		></div>
+	</div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
-export default {
-    data() {
-        return {
-            test: true,
-        };
-    },
-    computed: {
-        ...mapGetters(["items"]),
-    },
-    methods: {
-        ...mapActions(["filterByType", "filterByGame"]),
-        decideCategory() {
-            if (this.$route.path === "/") {
-                return this.items.esportDisciplines;
-            } else if (this.$route.path === "/sport") {
-                return this.items.sportDisciplines;
-            } else {
-                return this.items.esportDisciplines;
-            }
-        },
-    },
-    beforeMount() {
-        this.filterByType("esport");
-    },
-};
+	import { mapGetters, mapActions } from 'vuex';
+	export default {
+		data() {
+			return {
+				test: true,
+				matchModal: false,
+				matchNumber: 0,
+				betAmount: null,
+				activeTeam: 'A',
+			};
+		},
+		computed: {
+			...mapGetters(['items']),
+		},
+		methods: {
+			...mapActions(['filterByType', 'filterByGame']),
+			decideCategory() {
+				if (this.$route.path === '/') {
+					return this.items.esportDisciplines;
+				} else if (this.$route.path === '/sport') {
+					return this.items.sportDisciplines;
+				} else {
+					return this.items.esportDisciplines;
+				}
+			},
+			showMatchModalA(x) {
+				this.activeTeam = 'A';
+				this.matchModal = !this.matchModal;
+				this.matchNumber = x;
+			},
+			showMatchModalB(x) {
+				this.activeTeam = 'B';
+				this.matchModal = !this.matchModal;
+				this.matchNumber = x;
+			},
+			placeABet() {
+				if (this.items.funds < this.betAmount) {
+					alert(
+						'Please make sure you have enough funds. Try depositing some money first.'
+					);
+				} else if (this.items.bets.length >= 10) {
+					alert('You can only have a maximum of 10 bets active!');
+				} else if (this.betAmount < 0) {
+					alert('Please enter a correct amount');
+				} else if (this.betAmount > 100) {
+					alert('Maximum bet is 100$.');
+				} else if (this.betAmount == null) {
+					alert('Enter a bet amount first.');
+				} else {
+					this.items.funds -= this.betAmount;
+					this.matchModal = false;
+					let match = this.items.filterMatches[this.matchNumber];
+					let newBet = {};
+					let possibleReturn = this.betAmount * match.oddsA;
+					newBet['teamA'] = match.nameA;
+					newBet['teamB'] = match.nameB;
+					newBet['odds'] = match.oddsA;
+					newBet['possibleReturn'] = possibleReturn;
+					this.items.bets.push(newBet);
+					this.betAmount = null;
+				}
+			},
+		},
+		beforeMount() {
+			this.filterByType('esport');
+		},
+	};
 </script>
 
-
 <style>
-.matchesWrapper {
-    display: grid;
-    grid-template-columns: 5rem 1fr 5rem;
-}
+	.matchesWrapper {
+		display: grid;
+		grid-template-columns: 5rem 1fr 5rem;
+	}
 </style>

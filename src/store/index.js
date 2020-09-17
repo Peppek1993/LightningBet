@@ -12,9 +12,10 @@ export default new Vuex.Store({
                 nameA: 'Top Esports',
                 teamB: 'jd_gaming',
                 nameB: 'JD Gaming',
-                oddsA: 1.8,
-                oddsB: 1.8,
+                oddsA: 1.53,
+                oddsB: 2.86,
                 type: 'esport',
+                id: 1
             },
             {
                 game: 'cs',
@@ -23,9 +24,10 @@ export default new Vuex.Store({
                 nameA: 'Avez Esports',
                 teamB: 'evil_geniuses',
                 nameB: 'Evil Geniuses',
-                oddsA: 1.8,
-                oddsB: 1.8,
+                oddsA: 5,
+                oddsB: 1.25,
                 type: 'esport',
+                id: 2
             },
             {
                 game: 'dota',
@@ -37,6 +39,7 @@ export default new Vuex.Store({
                 oddsA: 1.8,
                 oddsB: 1.8,
                 type: 'esport',
+                id: 3
             },
             {
                 game: 'overwatch',
@@ -45,9 +48,10 @@ export default new Vuex.Store({
                 nameA: 'Angry Titans',
                 teamB: 'ldlc_ol',
                 nameB: 'LDLC OL',
-                oddsA: 1.8,
-                oddsB: 1.8,
+                oddsA: 1.2,
+                oddsB: 5.88,
                 type: 'esport',
+                id: 4
             },
             {
                 game: 'r6',
@@ -56,9 +60,10 @@ export default new Vuex.Store({
                 nameA: 'Team Liquid',
                 teamB: 'gamerlegion',
                 nameB: 'GamerLegion',
-                oddsA: 1.8,
-                oddsB: 1.8,
+                oddsA: 1.82,
+                oddsB: 2.22,
                 type: 'esport',
+                id: 5
             },
             {
                 game: 'lol',
@@ -70,6 +75,7 @@ export default new Vuex.Store({
                 oddsA: 1.8,
                 oddsB: 1.8,
                 type: 'esport',
+                id: 6
             },
             {
                 game: 'lol',
@@ -78,9 +84,10 @@ export default new Vuex.Store({
                 nameA: 'Team Sprout',
                 teamB: 't1',
                 nameB: 'T1',
-                oddsA: 1.8,
-                oddsB: 1.8,
+                oddsA: 2.7,
+                oddsB: 1.58,
                 type: 'esport',
+                id: 7
             },
             {
                 game: 'cs',
@@ -92,6 +99,7 @@ export default new Vuex.Store({
                 oddsA: 1.8,
                 oddsB: 1.8,
                 type: 'esport',
+                id: 8
             },
             {
                 game: 'dota',
@@ -100,9 +108,10 @@ export default new Vuex.Store({
                 nameA: 'Team Alliance',
                 teamB: 'aster_aries',
                 nameB: 'Aster Aries',
-                oddsA: 1.8,
-                oddsB: 1.8,
+                oddsA: 2.56,
+                oddsB: 1.64,
                 type: 'esport',
+                id: 9
             },
             {
                 game: 'overwatch',
@@ -111,9 +120,10 @@ export default new Vuex.Store({
                 nameA: 'MIBR',
                 teamB: 'young_and_beautiful',
                 nameB: 'Young And Beautiful',
-                oddsA: 1.8,
-                oddsB: 1.8,
+                oddsA: 2.08,
+                oddsB: 1.92,
                 type: 'esport',
+                id: 10
             },
             {
                 game: 'r6',
@@ -125,6 +135,7 @@ export default new Vuex.Store({
                 oddsA: 1.8,
                 oddsB: 1.8,
                 type: 'esport',
+                id: 11
             },
             {
                 game: 'quidditch',
@@ -133,9 +144,10 @@ export default new Vuex.Store({
                 nameA: 'Gryffindor',
                 teamB: 'hufflepuff',
                 nameB: 'Hufflepuff',
-                oddsA: 1.8,
-                oddsB: 1.8,
+                oddsA: 1.49,
+                oddsB: 3.03,
                 type: 'sport',
+                id: 12
             },
             {
                 game: 'basketball',
@@ -144,9 +156,10 @@ export default new Vuex.Store({
                 nameA: 'Boston Celtics',
                 teamB: 'dallas_mavericks',
                 nameB: 'Dallas Mavericks',
-                oddsA: 1.8,
-                oddsB: 1.8,
+                oddsA: 1.69,
+                oddsB: 2.43,
                 type: 'sport',
+                id: 13
             },
             {
                 game: 'ice_hockey',
@@ -155,9 +168,10 @@ export default new Vuex.Store({
                 nameA: 'Boston Bruins',
                 teamB: 'colorado_avalanche',
                 nameB: 'Colorado Avalanche',
-                oddsA: 1.8,
-                oddsB: 1.8,
+                oddsA: 3.57,
+                oddsB: 1.39,
                 type: 'sport',
+                id: 14
             },
             {
                 game: 'quidditch',
@@ -166,9 +180,10 @@ export default new Vuex.Store({
                 nameA: 'Slytherin',
                 teamB: 'ravenclaw',
                 nameB: 'Ravenclaw',
-                oddsA: 1.8,
-                oddsB: 1.8,
+                oddsA: 1.47,
+                oddsB: 3.13,
                 type: 'sport',
+                id: 15
             },
             {
                 game: 'lol',
@@ -177,9 +192,10 @@ export default new Vuex.Store({
                 nameA: 'Misfits Premier',
                 teamB: 'schalke_04_evolution',
                 nameB: 'Schalke 04 Evolution',
-                oddsA: 1.8,
-                oddsB: 1.8,
+                oddsA: 1.11,
+                oddsB: 10,
                 type: 'esport',
+                id: 16
             },
             {
                 game: 'ice_hockey',
@@ -188,9 +204,10 @@ export default new Vuex.Store({
                 nameA: 'Dallas Stars',
                 teamB: 'new_york_islanders',
                 nameB: 'New York Islanders',
-                oddsA: 1.8,
-                oddsB: 1.8,
+                oddsA: 2.12,
+                oddsB: 1.88,
                 type: 'sport',
+                id: 17
             },
             {
                 game: 'ice_hockey',
@@ -199,9 +216,10 @@ export default new Vuex.Store({
                 nameA: 'Philadelphia Flyers',
                 teamB: 'tampa_bay_lightning',
                 nameB: 'Tampa Bay Lightning',
-                oddsA: 1.8,
-                oddsB: 1.8,
+                oddsA: 2.63,
+                oddsB: 1.61,
                 type: 'sport',
+                id: 18
             },
         ],
         filterMatches: [],
@@ -273,6 +291,45 @@ export default new Vuex.Store({
                 type: '/sport'
             },
         ],
+        funds: 0,
+        paymentMethods: ['fa-bitcoin', 'fa-cc-paypal', 'fa-cc-visa', 'fa-cc-apple-pay'],
+        bets: [{
+                teamA: 'Top Esports',
+                teamB: 'JD Gaming',
+                odds: 1.53,
+                possibleReturn: 3.06
+            },
+            {
+                teamA: 'Top Esports',
+                teamB: 'JD Gaming',
+                odds: 1.53,
+                possibleReturn: 3.06
+            },
+            {
+                teamA: 'Top Esports',
+                teamB: 'JD Gaming',
+                odds: 1.53,
+                possibleReturn: 3.06
+            },
+            {
+                teamA: 'Top Esports',
+                teamB: 'JD Gaming',
+                odds: 1.53,
+                possibleReturn: 3.06
+            },
+            {
+                teamA: 'Top Esports',
+                teamB: 'JD Gaming',
+                odds: 1.53,
+                possibleReturn: 3.06
+            },
+            {
+                teamA: 'Top Esports',
+                teamB: 'JD Gaming',
+                odds: 1.53,
+                possibleReturn: 3.06
+            }
+        ]
     },
     getters: {
         items: (state) => {

@@ -13,6 +13,9 @@ module.exports = {
             gridTemplateColumns: {
                 'headerWrapper': '14rem 1fr 14rem',
             },
+            height: {
+                'bets': '36rem'
+            }
         },
     },
     variants: {

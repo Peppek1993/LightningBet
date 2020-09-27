@@ -41,17 +41,25 @@
                         <i class="far fa-question-circle pr-2"></i> Faq
                     </a>
                 </router-link>
-                <router-link to="blog">
+                <a href="https://github.com/Peppek1993/LightningBet" target="_blank">
                     <a class="menuItem">
                         <i class="fas fa-newspaper pr-2"></i> Blog
                     </a>
-                </router-link>
+                </a>
             </div>
             <div class="bg-gray-800 flex justify-around">
-                <i class="fab fa-github py-4"></i>
-                <i class="fab fa-facebook py-4"></i>
-                <i class="fab fa-linkedin py-4"></i>
-                <i class="fab fa-instagram py-4"></i>
+                <a href="https://github.com/Peppek1993" target="_blank">
+                    <i class="fab fa-github py-4"></i>
+                </a>
+                <a href>
+                    <i class="fab fa-facebook py-4"></i>
+                </a>
+                <a href>
+                    <i class="fab fa-linkedin py-4"></i>
+                </a>
+                <a href>
+                    <i class="fab fa-instagram py-4"></i>
+                </a>
             </div>
         </div>
         <div

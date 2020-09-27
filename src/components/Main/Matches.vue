@@ -20,7 +20,7 @@
         </div>
         <transition-group name="fadeLeftBig" mode="out-in">
             <div v-for="(match, index) in items.filterMatches" :key="match.id" class="px-6">
-                <div class="matchesWrapper my-4">
+                <div class="matchesWrapper my-4 shadow-2xl">
                     <div class="py-8 px-6 bg-gray-500 rounded-l-lg" :class="match.color">
                         <img
                             :src="
@@ -76,7 +76,6 @@
                 </div>
             </div>
         </transition-group>
-        <div class="flex sm:hidden fixed bottom-0 bg-red-500 w-full h-20 col-start-3 col-end-4">asdf</div>
         <t-modal header="Deposit funds" v-model="matchModal" class="p-10">
             <div class="flex-col justify-around text-center h-full">
                 <p>
@@ -186,15 +185,27 @@ export default {
                 this.matchModal = false;
                 let match = this.items.filterMatches[this.matchNumber];
                 let newBet = {};
-                let possibleReturn = this.betAmount * match.oddsA;
+                let possibleReturn =
+                    this.betAmount * match[`odds${this.activeTeam}`];
                 newBet["teamA"] = match.nameA;
                 newBet["teamB"] = match.nameB;
                 newBet["winner"] = match[`name${this.activeTeam}`];
                 newBet["chance"] = match[`chance${this.activeTeam}`];
-                newBet["odds"] = match.oddsA;
+                newBet["odds"] = match[`odds${this.activeTeam}`];
                 newBet["possibleReturn"] = possibleReturn;
                 this.items.bets.push(newBet);
                 this.betAmount = null;
+                let bets = this.items.bets;
+                let amount = 0;
+                for (let i = 0; i < bets.length; i++) {
+                    amount += bets[i].possibleReturn / bets[i].odds;
+                }
+                this.items.totalStake = amount.toFixed(2);
+                let returnAmount = 0;
+                for (let i = 0; i < bets.length; i++) {
+                    returnAmount += bets[i].possibleReturn;
+                }
+                this.items.totalReturn = returnAmount.toFixed(2);
             }
         },
     },

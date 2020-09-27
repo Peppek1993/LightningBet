@@ -18,7 +18,7 @@
                     @click="filterByType('esport')"
                     class="text-center hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-xl sm:text-sm tracking-wide hover:text-blue-500 cursor-pointer"
                 >
-                    <i class="fas fa-gamepad"></i>
+                    <i class="fas fa-gamepad hidden sm:inline-block"></i>
                     Esports
                 </div>
             </router-link>
@@ -27,14 +27,14 @@
                     @click="filterByType('sport')"
                     class="text-center hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-xl sm:text-sm tracking-wide hover:text-blue-500 cursor-pointer"
                 >
-                    <i class="fas fa-futbol"></i>
+                    <i class="fas fa-futbol hidden sm:inline-block"></i>
                     Sport
                 </div>
             </router-link>
             <div
                 class="text-center hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-xl sm:text-sm tracking-wide hover:text-blue-500 cursor-pointer"
             >
-                <i class="fas fa-dice"></i>
+                <i class="fas fa-dice hidden sm:inline-block"></i>
                 Games
             </div>
         </div>
@@ -49,7 +49,7 @@
                     href="#"
                     class="hover:bg-gray-800 duration-500 p-2 rounded-lg border border-teal-500 hover:text-blue-500 cursor-pointer"
                 >
-                    <i class="fas fa-coins"></i>
+                    <i class="fas fa-coins hidden sm:inline-block"></i>
                     Deposit
                 </a>
             </div>

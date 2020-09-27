@@ -20,7 +20,8 @@ module.exports = {
     },
     variants: {
         borderWidth: ['hover'],
-        textColor: ['active']
+        textColor: ['active'],
+        backgroundColor: ['odd', 'even', 'hover']
     },
     plugins: [],
 }

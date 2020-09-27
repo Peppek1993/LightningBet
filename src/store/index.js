@@ -333,6 +333,111 @@ export default new Vuex.Store({
         wonBets: [],
         lostBets: [],
         clearButton: false,
+        users: [{
+                name: 'Biofrost',
+                score: null,
+            },
+            {
+                name: 'Doublelift',
+                score: null,
+            },
+            {
+                name: 'Kramer',
+                score: null,
+            },
+            {
+                name: 'Ruler',
+                score: null,
+            },
+            {
+                name: 'CoreJJ',
+                score: null,
+            },
+            {
+                name: 'Aphromoo',
+                score: null,
+            },
+            {
+                name: 'Jenkins',
+                score: null,
+            },
+            {
+                name: 'Faker',
+                score: null,
+            },
+            {
+                name: 'Jankos',
+                score: null,
+            },
+            {
+                name: 'Perkz',
+                score: null,
+            },
+            {
+                name: 'Caps',
+                score: null,
+            },
+            {
+                name: 'PowerOfEvil',
+                score: null,
+            },
+            {
+                name: 'Wunder',
+                score: null,
+            },
+            {
+                name: 'Uzi',
+                score: null,
+            },
+            {
+                name: 'Captain Jack',
+                score: null,
+            },
+            {
+                name: 'Harry Potter',
+                score: null,
+            },
+            {
+                name: 'Hermione Granger',
+                score: null,
+            },
+            {
+                name: 'Ron Weasley',
+                score: null,
+            },
+            {
+                name: 'Severus Snape',
+                score: null,
+            },
+            {
+                name: 'Donald Trump',
+                score: null,
+            },
+            {
+                name: 'monkaS',
+                score: null,
+            },
+            {
+                name: 'Guardsman Bob',
+                score: null,
+            },
+            {
+                name: 'Yo mama',
+                score: null,
+            },
+            {
+                name: 'Monster',
+                score: null,
+            },
+            {
+                name: 'Marilyn Monroe',
+                score: null,
+            },
+        ],
+        sortedUsers: [],
+        totalStake: 0,
+        totalReturn: 0,
+        wonAmount: 0
     },
     getters: {
         items: (state) => {

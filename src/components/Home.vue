@@ -4,6 +4,7 @@
         <app-left-panel></app-left-panel>
         <app-content></app-content>
         <app-bet-panel></app-bet-panel>
+        <app-bet-slip></app-bet-slip>
     </div>
 </template>
 
@@ -12,6 +13,7 @@ import Header from "./Header.vue";
 import BetPanel from "./BetPanel.vue";
 import Content from "./Content.vue";
 import LeftPanel from "./LeftPanel.vue";
+import BetSlip from "./BetSlip.vue";
 import { mapGetters } from "vuex";
 export default {
     components: {
@@ -19,6 +21,7 @@ export default {
         appBetPanel: BetPanel,
         appContent: Content,
         appLeftPanel: LeftPanel,
+        appBetSlip: BetSlip,
     },
     computed: {
         ...mapGetters(["items"]),

@@ -1,46 +1,49 @@
 <template>
     <div
-        class="col-start-5 col-end-6 lg:col-start-4 hidden sm:block overflow-auto shadow-layoutright h-bets"
+        class="col-start-4 col-end-6 hidden lg:inline-block overflow-auto shadow-layoutright lg:h-bets h-full"
         :key="betsKey"
     >
-        <div v-for="bet in items.bets" class="p-3 flex-col w-full">
-            <div
-                class="border-teal-400 bg-gray-800 border rounded-md flex-col px-3 py-1 text-center text-sm font-light"
-                :class="bet.result"
-            >
-                <h1 class="text-xs font-hairline">
-                    {{ bet.teamA }}
-                    vs
-                    {{ bet.teamB }}
-                </h1>
-                <p>Winner: {{bet.winner}}</p>
-                <p>Stake: {{bet.possibleReturn / bet.odds}}$</p>
-                <p>Odds: {{ bet.odds }}</p>
-                <p>Potential win: {{ bet.possibleReturn }}$</p>
+        <div class="hidden lg:inline-block">
+            <div v-for="bet in items.bets" class="p-3 flex-col w-full">
+                <div
+                    class="border-teal-400 bg-gray-800 border rounded-md flex-col px-3 py-1 text-center text-sm font-light"
+                    :class="bet.result"
+                >
+                    <h1 class="text-xs font-hairline">
+                        {{ bet.teamA }}
+                        vs
+                        {{ bet.teamB }}
+                    </h1>
+                    <p>Winner: {{bet.winner}}</p>
+                    <p>Stake: {{(bet.possibleReturn / bet.odds).toFixed(2)}}$</p>
+                    <p>Odds: {{ bet.odds }}</p>
+                    <p>Potential win: {{ bet.possibleReturn.toFixed(2) }}$</p>
+                </div>
             </div>
-        </div>
-        <div class="bg-gray-800 rounded-md p-3 absolute bottom-0 w-56 px-4 font-light">
-            <h1>Bet slip summary</h1>
-            <p>Total stake: {{totalStake()}}$</p>
-            <p>Expected win: {{totalReturn()}}$</p>
-            <button
-                class="p-1 border border-teal-300 rounded-md h-10 hover:bg-teal-700 duration-500 font-light"
-                @click="simulateBet()"
-                v-if="simulateButton"
-            >
-                <i class="fas fa-dice"></i>
-                Simulate outcome
-                <i class="fas fa-dice"></i>
-            </button>
-            <button
-                class="p-1 border border-teal-300 rounded-md h-10 hover:bg-teal-700 duration-500 font-light"
-                @click="clearBets()"
-                v-if="items.clearButton"
-            >
-                <i class="fas fa-dice"></i>
-                Clear bets
-                <i class="fas fa-dice"></i>
-            </button>
+            <div class="bg-gray-800 rounded-md p-3 absolute bottom-0 w-56 px-4 font-light">
+                <h1>Bet slip summary</h1>
+                <p>Total stake: {{items.totalStake}}$</p>
+                <p v-if="items.clearButton">Won: {{items.wonAmount.toFixed(2)}}$</p>
+                <p v-if="simulateButton">Expected win: {{items.totalReturn}}$</p>
+                <button
+                    class="p-1 border border-teal-300 rounded-md h-10 hover:bg-teal-700 duration-500 font-light"
+                    @click="simulateBet()"
+                    v-if="simulateButton"
+                >
+                    <i class="fas fa-dice"></i>
+                    Simulate outcome
+                    <i class="fas fa-dice"></i>
+                </button>
+                <button
+                    class="p-1 border border-teal-300 rounded-md h-10 hover:bg-teal-700 duration-500 font-light"
+                    @click="clearBets()"
+                    v-if="items.clearButton"
+                >
+                    <i class="fas fa-dice"></i>
+                    Clear bets
+                    <i class="fas fa-dice"></i>
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -58,23 +61,8 @@ export default {
         ...mapGetters(["items"]),
     },
     methods: {
-        totalStake() {
-            let bets = this.items.bets;
-            let amount = 0;
-            for (let i = 0; i < bets.length; i++) {
-                amount += bets[i].possibleReturn / bets[i].odds;
-            }
-            return amount.toFixed(2);
-        },
-        totalReturn() {
-            let bets = this.items.bets;
-            let amount = 0;
-            for (let i = 0; i < bets.length; i++) {
-                amount += bets[i].possibleReturn;
-            }
-            return amount.toFixed(2);
-        },
         simulateBet() {
+            this.items.wonAmount = 0;
             this.items.lostBets = [];
             this.items.wonBets = [];
             let bets = this.items.bets;
@@ -94,6 +82,9 @@ export default {
                         this.items.funds += Number(
                             bets[i].possibleReturn.toFixed(2)
                         );
+                        this.items.wonAmount += Number(
+                            bets[i].possibleReturn.toFixed(2)
+                        );
                     }
                 }
                 this.simulateButton = false;
@@ -101,6 +92,8 @@ export default {
             }
         },
         clearBets() {
+            this.items.totalStake = 0;
+            this.items.totalReturn = 0;
             this.items.bets = [];
             this.simulateButton = true;
             this.items.clearButton = false;

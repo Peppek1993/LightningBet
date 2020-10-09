@@ -30,5 +30,5 @@ export const routes = [{
     {
         path: '/faq',
         component: Faq
-    }
+    },
 ];

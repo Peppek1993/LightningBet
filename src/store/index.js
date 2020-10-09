@@ -161,7 +161,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'quidditch',
-                color: 'bg-blue-400',
+                color: 'bg-yellow-600',
                 teamA: 'gryffindor',
                 nameA: 'Gryffindor',
                 teamB: 'hufflepuff',
@@ -175,7 +175,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'basketball',
-                color: 'bg-blue-400',
+                color: 'bg-orange-600',
                 teamA: 'boston_celtics',
                 nameA: 'Boston Celtics',
                 teamB: 'dallas_mavericks',
@@ -189,7 +189,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'ice_hockey',
-                color: 'bg-blue-400',
+                color: 'bg-teal-600',
                 teamA: 'boston_bruins',
                 nameA: 'Boston Bruins',
                 teamB: 'colorado_avalanche',
@@ -203,7 +203,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'quidditch',
-                color: 'bg-blue-400',
+                color: 'bg-yellow-600',
                 teamA: 'slytherin',
                 nameA: 'Slytherin',
                 teamB: 'ravenclaw',
@@ -231,7 +231,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'ice_hockey',
-                color: 'bg-blue-400',
+                color: 'bg-teal-600',
                 teamA: 'dallas_stars',
                 nameA: 'Dallas Stars',
                 teamB: 'new_york_islanders',
@@ -245,7 +245,7 @@ export default new Vuex.Store({
             },
             {
                 game: 'ice_hockey',
-                color: 'bg-blue-400',
+                color: 'bg-teal-600',
                 teamA: 'philadelphia_flyers',
                 nameA: 'Philadelphia Flyers',
                 teamB: 'tampa_bay_lightning',
@@ -258,75 +258,98 @@ export default new Vuex.Store({
                 id: 18
             },
         ],
-        filterMatches: [],
-        esportDisciplines: [{
+        disciplinesInfo: [{
                 name: 'League of Legends',
                 tag: 'lol',
-                color: 'border-green-400',
-                type: '/esport'
+                borderColor: 'border-green-400',
+                backgroundColor: 'bg-teal-500',
+                type: 'esport'
             },
             {
                 name: 'CS:GO',
                 tag: 'cs',
-                color: 'border-blue-400',
-                type: '/esport'
+                borderColor: 'border-blue-400',
+                backgroundColor: 'bg-blue-700',
+                type: 'esport'
             },
             {
                 name: 'Overwatch',
                 tag: 'overwatch',
-                color: 'border-yellow-300',
-                type: '/esport'
+                borderColor: 'border-yellow-300',
+                backgroundColor: 'bg-yellow-300',
+                type: 'esport'
             },
             {
                 name: 'Dota 2',
                 tag: 'dota',
-                color: 'border-red-500',
-                type: '/esport'
+                borderColor: 'border-red-500',
+                backgroundColor: 'bg-red-700',
+                type: 'esport'
             },
             {
                 name: 'Rainbow Six',
                 tag: 'r6',
-                color: 'border-orange-400',
-                type: '/esport'
+                borderColor: 'border-orange-400',
+                backgroundColor: 'bg-orange-600',
+                type: 'esport'
             },
-        ],
-        sportDisciplines: [{
+            {
                 name: 'Quidditch',
                 tag: 'quidditch',
-                color: 'border-yellow-400',
-                type: '/sport'
+                borderColor: 'border-yellow-400',
+                backgroundColor: 'bg-yellow-600',
+                type: 'sport'
             },
             {
                 name: 'Ice Hockey',
                 tag: 'ice_hockey',
-                color: 'border-teal-400',
-                type: '/sport'
+                borderColor: 'border-teal-400',
+                backgroundColor: 'bg-teal-600',
+                type: 'sport'
             },
             {
                 name: 'Volleyball',
                 tag: 'volleyball',
-                color: 'border-pink-400',
-                type: '/sport'
+                borderColor: 'border-pink-400',
+                backgroundColor: 'bg-pink-600',
+                type: 'sport'
             },
             {
                 name: 'Basketball',
                 tag: 'basketball',
-                color: 'border-orange-400',
-                type: '/sport'
+                borderColor: 'border-orange-400',
+                backgroundColor: 'bg-orange-600',
+                type: 'sport'
             },
             {
                 name: 'Table Tennis',
                 tag: 'table_tennis',
-                color: 'border-purple-600',
-                type: '/sport'
+                borderColor: 'border-purple-600',
+                backgroundColor: 'bg-purple-800',
+                type: 'sport'
             },
             {
                 name: 'American Football',
                 tag: 'american_football',
-                color: 'border-orange-900',
-                type: '/sport'
-            },
+                borderColor: 'border-orange-900',
+                backgroundColor: 'bg-orange-300',
+                type: 'sport'
+            }
         ],
+        teams: [{
+            cs: ['Avez', 'Evil Geniuses', 'Forze', 'Hellraisers', 'Tyloo', 'Vici'],
+            lol: ['Afreeca Freecs', 'Gen G', 'JD Gaming', 'Misfits Premier', 'Samsung Morning Stars', 'Schalke 04 Evolution', 'Sprout', 'T1', 'Talon Esports', 'Top Esports'],
+            dota: ['Alliance', 'Aster Aries', 'Dignitas', 'FlyToMoon', 'Geek Fam', 'Natus Vincere', 'Nigma', 'OG', 'Omega Gaming', 'Sparking Arrow Gaming', 'Team Secret', 'Virtus Pro'],
+            overwatch: ['Angry Titans', 'LDLC OL', 'MIBR', 'Young and Beautiful'],
+            r6: ['Furia', 'GamerLegion', 'Heroic', 'K1CK Neosurf', 'Liquid', 'Mad Lions'],
+            quidditch: ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'],
+            ice_hockey: ['Boston Bruins', 'Colorado Avalanche', 'Dallas Stars', 'New York Islanders', 'Philadelphia Flyers', 'Tampa Bay Lightning', 'Vancouver Canucks', 'Vegas GK'],
+            basketball: ['Boston Celtics', 'Dallas Mavericks', 'Denver Nuggets', 'Los Angeles Clippers', 'Toronto Raptors', 'Utah Jazz'],
+            american_football: ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Houston Texans', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Miamo Dolphins', 'Tampa Bay Buccaneers'],
+            table_tennis: ['Austria', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Germany', 'Greece', 'Netherlands', 'Poland', 'Portugal'],
+            volleyball: ['Colorado Rapids', 'Columbus Crew', 'Houston Dynamo', 'Montreal Impact', 'New England Revolution', 'Philadelphia Union', 'Portland Timbers', 'Toronto FC', 'Vancouver Whitecaps']
+        }],
+        filterMatches: [],
         funds: 0,
         paymentMethods: ['fa-bitcoin', 'fa-cc-paypal', 'fa-cc-visa', 'fa-cc-apple-pay'],
         bets: [],
@@ -437,7 +460,8 @@ export default new Vuex.Store({
         sortedUsers: [],
         totalStake: 0,
         totalReturn: 0,
-        wonAmount: 0
+        wonAmount: 0,
+        newMatchModal: false,
     },
     getters: {
         items: (state) => {
@@ -461,6 +485,15 @@ export default new Vuex.Store({
             });
             this.state.filterMatches = filteredMatches;
         },
+        matchesAmount(payload) {
+            let filteredMatches = this.items.upcomingMatches.filter(function (
+                match
+            ) {
+                return match.game == payload;
+            });
+            let amount = filteredMatches.length;
+            return amount;
+        },
     },
     actions: {
         filterByGame({
@@ -472,6 +505,11 @@ export default new Vuex.Store({
             commit
         }, payload) {
             commit('filterByType', payload);
+        },
+        matchesAmountTest({
+            commit
+        }, payload) {
+            commit('matchesAmountTest', payload);
         },
     },
     modules: {},

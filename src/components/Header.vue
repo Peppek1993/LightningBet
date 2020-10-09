@@ -12,11 +12,13 @@
                 />
             </router-link>
         </div>
-        <div class="flex col-start-2 col-end-3 items-center justify-center sm:justify-start">
+        <div
+            class="flex col-start-2 col-end-3 items-center justify-center sm:justify-start"
+        >
             <router-link to="/esport">
                 <div
                     @click="filterByType('esport')"
-                    class="text-center hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-xl sm:text-sm tracking-wide hover:text-blue-500 cursor-pointer"
+                    class="text-center hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-xl sm:text-sm tracking-wide hover:text-teal-400 cursor-pointer"
                 >
                     <i class="fas fa-gamepad hidden sm:inline-block"></i>
                     Esports
@@ -25,14 +27,15 @@
             <router-link to="/sport">
                 <div
                     @click="filterByType('sport')"
-                    class="text-center hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-xl sm:text-sm tracking-wide hover:text-blue-500 cursor-pointer"
+                    class="text-center hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-xl sm:text-sm tracking-wide hover:text-teal-400 cursor-pointer"
                 >
                     <i class="fas fa-futbol hidden sm:inline-block"></i>
                     Sport
                 </div>
             </router-link>
             <div
-                class="text-center hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-xl sm:text-sm tracking-wide hover:text-blue-500 cursor-pointer"
+                class="text-center hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-xl sm:text-sm tracking-wide hover:text-teal-400 cursor-pointer"
+                @click="gamesAlert()"
             >
                 <i class="fas fa-dice hidden sm:inline-block"></i>
                 Games
@@ -89,7 +92,10 @@
                 </div>
             </template>
         </t-modal>
-        <div v-if="depositModal" class="absolute z-30 inset-0 opacity-50 bg-black"></div>
+        <div
+            v-if="depositModal"
+            class="absolute z-30 inset-0 opacity-50 bg-black"
+        ></div>
     </div>
 </template>
 
@@ -126,6 +132,11 @@ export default {
         displayFunds() {
             let funds = this.items.funds.toFixed(2);
             return funds;
+        },
+        gamesAlert() {
+            alert(
+                "Sorry, Games are currently unavailable. Please check back later!"
+            );
         },
     },
     computed: {

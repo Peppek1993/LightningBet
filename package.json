@@ -7,6 +7,8 @@
         "build": "vue-cli-service build"
     },
     "dependencies": {
+        "@braid/vue-formulate": "^2.4.4",
+        "axios": "^0.20.0",
         "core-js": "^3.6.5",
         "moment": "^2.27.0",
         "tailwindcss": "^1.7.2",

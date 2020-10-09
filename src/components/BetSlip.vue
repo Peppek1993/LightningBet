@@ -18,7 +18,7 @@
 
         <div
             v-show="expanded"
-            class="fixed top-0 z-50 h-full w-full bg-gray-900 py-16 overflow-auto"
+            class="fixed top-0 z-50 h-full w-full bg-gray-900 py-16 overflow-auto inline-block lg:hidden"
         >
             <div
                 class="bg-teal-900 flex lg:hidden rounded-md border-2 border-teal-700 fixed bottom-0 w-full h-16 justify-around items-center font-thin"

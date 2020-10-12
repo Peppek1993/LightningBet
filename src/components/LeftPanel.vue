@@ -77,7 +77,7 @@
 						<div
 							@click="filterByGame(discipline.tag)"
 							class="hover:border-l-8 hover:bg-gray-600 hover:bg-opacity-25 cursor-pointer px-4 flex duration-300 h-12 items-center"
-							:class="discipline.color"
+							:class="discipline.borderColor"
 						>
 							<img
 								:src="
@@ -89,7 +89,7 @@
 					</router-link>
 				</div>
 			</div>
-			<div class="px-2">
+			<div>
 				<router-link to="leaderboard">
 					<a class="menuItem">
 						<i class="fas fa-trophy"></i>

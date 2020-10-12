@@ -1,84 +1,116 @@
 <template>
 	<div>
 		<div
-			class="text-center hover:bg-gray-800 duration-500 mx-6 mb-4 sm:px-4 rounded-md md:text-md sm:text-sm hover:text-teal-400 cursor-pointer w-24 border border-teal-300"
+			class="text-center hover:bg-gray-800 duration-500 mx-6 sm:px-4 rounded-md md:text-md sm:text-sm hover:text-teal-400 cursor-pointer w-24 border border-teal-300"
 			@click="items.newMatchModal = !items.newMatchModal"
 		>
 			<i class="fas fa-plus hidden sm:inline-block"></i>
 			New Match
 		</div>
-		<transition name="fadeLeft" mode="in-out">
-			<form v-show="items.newMatchModal">
-				<p>
-					<label for="newMatchType">
-						<span>Bet type:</span>
-					</label>
-					<select v-model="newMatchType" id="newMatchType">
-						<option value="esport">Esport</option>
-						<option value="sport">Sport</option>
-					</select>
-				</p>
-				<transition name="fadeLeft" mode="in-out">
-					<p v-if="newMatchType !== ''">
-						<label for="newMatchTeamA">
-							<span>Select a game:</span>
+		<transition
+			name="fade"
+			enter-active-class="fadeInDown"
+			leave-active-class="fadeOutUp"
+		>
+			<form v-show="items.newMatchModal" class="px-6">
+				<div class="flex">
+					<p class="pr-2 py-2 flex-col">
+						<label for="newMatchType">
+							<p class="font-thin text-teal-600">Bet type:</p>
 						</label>
-						<select v-model="newMatchGame" id="newMatchGame">
-							<option
-								v-for="game in decideGames(newMatchType)"
-								:value="`${game.tag}`"
-								>{{ game.name }}</option
+						<select
+							v-model="newMatchType"
+							id="newMatchType"
+							class="h-auto  font-thin bg-teal-500 text-black  rounded-md p-2 w-auto focus:outline-none"
+						>
+							<option value="esport">Esport</option>
+							<option value="sport">Sport</option>
+						</select>
+					</p>
+					<transition name="fadeLeft" mode="in-out">
+						<p v-if="newMatchType !== ''" class="p-2">
+							<label for="newMatchTeamA">
+								<p class="font-thin text-teal-600">
+									Game:
+								</p>
+							</label>
+							<select
+								v-model="newMatchGame"
+								id="newMatchGame"
+								class="h-auto  font-thin bg-teal-500 text-black  rounded-md p-2 w-auto focus:outline-none"
 							>
-						</select>
-					</p>
-				</transition>
+								<option
+									v-for="game in decideGames(newMatchType)"
+									:value="`${game.tag}`"
+									>{{ game.name }}</option
+								>
+							</select>
+						</p>
+					</transition>
+				</div>
+				<div class="flex">
+					<transition name="fadeLeft" mode="in-out">
+						<p v-if="newMatchGame !== ''" class="pr-2 py-2">
+							<label for="newMatchNameA">
+								<p class="font-thin text-teal-600">
+									Team A
+								</p>
+							</label>
+							<select
+								v-model="newMatchNameA"
+								id="newMatchNameA"
+								class="h-auto  font-thin bg-teal-500 text-black  rounded-md p-2 w-auto focus:outline-none"
+							>
+								<option
+									v-for="team in decideTeams(newMatchGame)"
+									>{{ team }}</option
+								>
+							</select>
+						</p>
+					</transition>
+					<transition name="fadeLeft" mode="in-out">
+						<p v-if="newMatchGame !== ''" class="p-2">
+							<label for="newMatchNameB">
+								<p class="font-thin text-teal-600">
+									Team B
+								</p>
+							</label>
+							<select
+								v-model="newMatchNameB"
+								id="newMatchNameB"
+								class="h-auto  font-thin bg-teal-500 text-black  rounded-md p-2 w-auto focus:outline-none"
+							>
+								<option
+									v-for="team in decideTeams(newMatchGame)"
+									>{{ team }}</option
+								>
+							</select>
+						</p>
+					</transition>
+				</div>
 				<transition name="fadeLeft" mode="in-out">
-					<p v-if="newMatchGame !== ''">
-						<label for="newMatchNameA">
-							<span>Select a team:</span>
-						</label>
-						<select v-model="newMatchNameA" id="newMatchNameA">
-							<option v-for="team in decideTeams(newMatchGame)">{{
-								team
-							}}</option>
-						</select>
-					</p>
-				</transition>
-				<transition name="fadeLeft" mode="in-out">
-					<p v-if="newMatchGame !== ''">
-						<label for="newMatchNameB">
-							<span>Select a team:</span>
-						</label>
-						<select v-model="newMatchNameB" id="newMatchNameB">
-							<option v-for="team in decideTeams(newMatchGame)">{{
-								team
-							}}</option>
-						</select>
-					</p>
-				</transition>
-				<transition name="fadeLeft" mode="in-out">
-					<p v-if="newMatchNameA !== '' && newMatchNameB !== ''">
+					<p
+						v-if="newMatchNameA !== '' && newMatchNameB !== ''"
+						class="py-2"
+					>
 						<label for="newMatchChanceA">
-							<span
-								>Enter {{ newMatchNameA }} chance of win:</span
-							>
+							<span class="font-thin text-teal-600">
+								Enter {{ newMatchNameA }} chance of winning
+								(1-100%):
+							</span>
 						</label>
 						<input
 							v-model.number="newMatchChanceA"
 							type="number"
 							min="0"
 							max="100"
+							class="h-auto  font-thin bg-teal-500 text-black  rounded-md p-2 w-auto focus:outline-none"
 						/>
 					</p>
 				</transition>
 				<transition name="fadeLeft" mode="in-out">
-					<p v-if="newMatchChanceA !== null">
-						{{ newMatchChanceB }}
-					</p>
-				</transition>
-				<transition name="fadeLeft" mode="in-out">
 					<button
-						class="p-2 bg-red-500 border"
+						class="p-2 border-teal-600 border focus:outline-none rounded-md hover:bg-teal-700 duration-500 w-24"
 						@click.prevent="addNewMatch()"
 					>
 						Add
@@ -125,7 +157,6 @@
 				newMatch['teamB'] = this.toSnake(this.newMatchNameB);
 				newMatch['color'] = this.decideColor(this.newMatchGame);
 				newMatch['id'] = this.items.upcomingMatches.length + 1;
-
 				if (this.newMatchNameA == this.newMatchNameB) {
 					alert('Make sure to select two different teams');
 				} else if (
@@ -135,6 +166,15 @@
 					alert('Please enter correct amount (1-100)');
 				} else {
 					this.items.upcomingMatches.push(newMatch);
+					alert(
+						`Match ${this.newMatchNameA} vs ${this.newMatchNameB} has been added.`
+					);
+					this.newMatchType = '';
+					this.newMatchGame = '';
+					this.newMatchNameA = '';
+					this.newMatchNameB = '';
+					this.newMatchChanceA = null;
+					this.items.newMatchModal = !this.items.newMatchModal;
 				}
 			},
 			toSnake(payload) {
@@ -155,7 +195,7 @@
 		data() {
 			return {
 				newMatchType: '',
-				newMatchGame: 'cs',
+				newMatchGame: '',
 				newMatchNameA: '',
 				newMatchNameB: '',
 				newMatchChanceA: null,

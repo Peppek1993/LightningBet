@@ -257,6 +257,7 @@ export default new Vuex.Store({
                 type: 'sport',
                 id: 18
             },
+
         ],
         disciplinesInfo: [{
                 name: 'League of Legends',
@@ -462,6 +463,7 @@ export default new Vuex.Store({
         totalReturn: 0,
         wonAmount: 0,
         newMatchModal: false,
+        selectedGame: '',
     },
     getters: {
         items: (state) => {
@@ -476,6 +478,7 @@ export default new Vuex.Store({
                 return match.game == payload;
             });
             this.state.filterMatches = filteredMatches;
+            this.state.selectedGame = payload;
         },
         filterByType(state, payload) {
             let filteredMatches = this.state.upcomingMatches.filter(function (
@@ -483,6 +486,7 @@ export default new Vuex.Store({
             ) {
                 return match.type == payload;
             });
+            this.state.selectedGame = payload
             this.state.filterMatches = filteredMatches;
         },
         matchesAmount(payload) {

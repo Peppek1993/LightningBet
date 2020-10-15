@@ -1,18 +1,18 @@
 <template>
 	<div>
 		<app-description></app-description>
-		<div
-			class="px-4 mt-16 h-auto bg-gray-700 flex justify-around items-center font-thin"
-		>
-			<img src="../assets/main_logo.svg" alt="Lightning Bet Logo" />
+		<div class="px-4 mt-16 h-auto bg-gray-700 flex justify-around items-center font-thin">
+			<img
+				src="../assets/main_logo.svg"
+				alt="Lightning Bet Logo"
+				class="w-32 sm:w-auto"
+			/>
 			<p class="w-auto">
 				Lightning bet is a non-profit portfolio project made by Adam
 				Partyka.
-				<a
-					href="mailto:adampartyka1993@gmail.com"
-					class="text-teal-300 font-thin"
-					>adampartyka1993@gmail.com</a
-				>
+				<a href="mailto:adampartyka1993@gmail.com" class="text-teal-300 font-thin">
+                    adampartyka1993@gmail.com
+                </a>
 			</p>
 			<p class="w-auto">
 				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum,
@@ -25,7 +25,7 @@
 			</div>
 		</div>
 		<div class="flex justify-between p-4 flex-auto items-center">
-			<p class="font-hairline text-xs sm:w-1/2 w-full">
+			<p class="font-thin text-xs sm:w-1/2 w-full text-gray-700">
 				Copyright @ 2020 All lightningbet.com products are jointly
 				operated by Lightning bet and Lightning eSports Limited
 				registered address Placeholder address lorem lorem, a company
@@ -36,19 +36,13 @@
 			</p>
 			<div class="hidden sm:flex">
 				<div v-for="rule in cryptorules" class="p-2">
-					<img
-						:src="require(`../assets/footer_bet_rules/${rule}.png`)"
-						class="h-10 mx-auto"
-					/>
+					<img :src="require(`../assets/footer_bet_rules/${rule}.png`)" class="h-10 mx-auto" />
 				</div>
 			</div>
 		</div>
 		<div class="flex sm:hidden">
 			<div v-for="rule in cryptorules" class="p-2">
-				<img
-					:src="require(`../assets/footer_bet_rules/${rule}.png`)"
-					class="h-10"
-				/>
+				<img :src="require(`../assets/footer_bet_rules/${rule}.png`)" class="h-10" />
 			</div>
 		</div>
 	</div>

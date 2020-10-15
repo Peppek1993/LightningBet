@@ -15,10 +15,9 @@
 				<i class="fas fa-expand-alt"></i>
 			</div>
 		</div>
-
-		<div
+        <div
 			v-show="expanded"
-			class="fixed top-0 z-50 h-full w-full bg-gray-900 py-10 overflow-auto inline-block lg:hidden"
+			class="fixed top-0 z-50 h-full w-full bg-gray-900 py-10 pb-20 overflow-auto inline-block lg:hidden"
 		>
 			<div class="px-4 sm:px-32"></div>
 			<div
@@ -27,8 +26,7 @@
 				<div>Active bets: {{ items.bets.length }}</div>
 				<div>Total stake: {{ items.totalStake }}$</div>
 				<div>Possible return: {{ items.totalReturn }}$</div>
-
-				<div
+                <div
 					class="border rounded-full p-2 cursor-pointer hover:bg-teal-700 duration-500 w-24 text-center"
 					@click="expanded = !expanded"
 				>

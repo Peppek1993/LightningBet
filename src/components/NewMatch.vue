@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div
-			class="text-center hover:bg-gray-800 duration-500 mx-6 sm:px-4 rounded-md md:text-md sm:text-sm hover:text-teal-400 cursor-pointer w-24 border border-teal-300"
+			class="text-center hover:bg-gray-800 duration-500 ml-6 sm:px-4 py-2 rounded-md md:text-md sm:text-sm hover:text-teal-400 cursor-pointer w-24 border border-teal-300"
 			@click="items.newMatchModal = !items.newMatchModal"
 		>
 			<i class="fas fa-plus hidden sm:inline-block"></i>

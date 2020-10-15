@@ -1,8 +1,6 @@
 <template>
 	<div>
-		<div
-			class="col-start-1 col-end-3 hidden lg:flex flex-col shadow-layoutleft w-56 h-full"
-		>
+		<div class="col-start-1 col-end-3 hidden lg:flex flex-col shadow-layoutleft w-56 h-full">
 			<div class="flex flex-col flex-flex10 bg-gray-800">
 				<div v-for="discipline in decideCategory()">
 					<div
@@ -11,10 +9,7 @@
 						:class="discipline.borderColor"
 					>
 						<div class="flex items-center">
-							<img
-								:src="
-									require(`../assets/games/${discipline.tag}_logo_32.svg`)
-								"
+							<img :src="require(`../assets/games/${discipline.tag}_logo_32.svg`)"
 								class="w-8 h-8 pr-2"
 							/>
 							{{ discipline.name }}
@@ -60,7 +55,7 @@
 				<a href>
 					<i class="fab fa-facebook py-4"></i>
 				</a>
-				<a href>
+				<a href ="https://www.linkedin.com/in/adam-partyka-0659a5177/" target="_blank">
 					<i class="fab fa-linkedin py-4"></i>
 				</a>
 				<a href>
@@ -68,9 +63,7 @@
 				</a>
 			</div>
 		</div>
-		<div
-			class="col-start-1 col-end-2 hidden sm:flex lg:hidden flex-col shadow-layoutleft w-16 h-full"
-		>
+		<div class="col-start-1 col-end-2 hidden sm:flex lg:hidden flex-col shadow-layoutleft w-16 h-full">
 			<div class="flex flex-col flex-flex10 bg-gray-800">
 				<div v-for="discipline in decideCategory()">
 					<router-link :to="discipline.type">
@@ -79,10 +72,7 @@
 							class="hover:border-l-8 hover:bg-gray-600 hover:bg-opacity-25 cursor-pointer px-4 flex duration-300 h-12 items-center"
 							:class="discipline.borderColor"
 						>
-							<img
-								:src="
-									require(`../assets/games/${discipline.tag}_logo_32.svg`)
-								"
+							<img :src="require(`../assets/games/${discipline.tag}_logo_32.svg`)"
 								class="w-10 h-10"
 							/>
 						</div>
@@ -119,7 +109,9 @@
 			<div class="bg-gray-800 flex justify-around py-4">
 				<i class="fab fa-github"></i>
 				<i class="fab fa-facebook"></i>
+                <a href="https://www.linkedin.com/in/adam-partyka-0659a5177/" target="_blank">
 				<i class="fab fa-linkedin"></i>
+                </a>
 				<i class="fab fa-instagram"></i>
 			</div>
 		</div>

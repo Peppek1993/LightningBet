@@ -10,18 +10,18 @@
 			<h1 class="text-3xl font-bold text-gray-500 py-2">
 				{{ description.name }} Betting Odds & Markets
 			</h1>
-			<hr />
+			<hr class="border-gray-700" />
 			<h2
 				class="text-md font-thin text-gray-500 cursor-pointer py-1"
 				@click="descOne = !descOne"
 			>
-				Game Description &#x25B2;
+				Game Description
 			</h2>
 
 			<p v-show="descOne" class="text-xs font-thin pb-2">
 				{{ description.first }}
 			</p>
-			<hr />
+			<hr class="border-gray-700" />
 			<h2
 				class="text-md font-thin text-gray-500 cursor-pointer py-1"
 				@click="descTwo = !descTwo"
@@ -31,7 +31,7 @@
 			<p v-show="descTwo" class="text-xs font-thin pb-2">
 				{{ description.second }}
 			</p>
-			<hr />
+			<hr class="border-gray-700" />
 			<h2
 				class="text-md font-thin text-gray-500 cursor-pointer py-1"
 				@click="descThree = !descThree"

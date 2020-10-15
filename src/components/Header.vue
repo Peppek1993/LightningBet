@@ -1,7 +1,5 @@
 <template>
-	<div
-		class="col-start-1 col-end-6 row-start-1 row-end-2 z-50 shadow-layout grid grid-cols-3 sm:grid-cols-headerWrapper"
-	>
+	<div class="col-start-1 col-end-6 row-start-1 row-end-2 z-50 shadow-layout grid grid-cols-3 sm:grid-cols-headerWrapper">
 		<div class="col-start-1 col-end-2 py-3 sm:py-2 pl-1">
 			<router-link to="/esport">
 				<img
@@ -12,9 +10,7 @@
 				/>
 			</router-link>
 		</div>
-		<div
-			class="flex col-start-2 col-end-3 items-center justify-center sm:justify-start"
-		>
+		<div class="flex col-start-2 col-end-3 items-center justify-center sm:justify-start font-hairline">
 			<router-link to="/esport">
 				<div
 					@click="filterByType('esport')"
@@ -41,8 +37,7 @@
 				Games
 			</div>
 		</div>
-
-		<div class="flex col-start-3 col-end-4 items-center justify-end">
+		<div class="flex col-start-3 col-end-4 items-center justify-end font-hairline">
 			<div class="text-center text-xl px-2">{{ displayFunds() }}$</div>
 			<div
 				class="text-sm py-5 sm:py-5 md:py-4 pr-2 md:text-xl sm:text-sm"

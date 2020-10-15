@@ -1,119 +1,47 @@
 <template>
-	<div
-		class="row-start-2 row-end-3 overflow-auto py-4 sm:py-16 pb-20 font-normal"
-	>
+	<div class="row-start-2 row-end-3 overflow-auto py-4 sm:py-16 pb-20">
 		<app-new-match></app-new-match>
-		<div class="flex sm:hidden justify-between px-6">
-			<div v-for="discipline in decideCategory()">
-				<router-link :to="discipline.type">
-					<div
-						@click="filterByGame(discipline.tag)"
-						class="hover:bg-gray-600 hover:bg-opacity-25 border rounded-lg px-4 cursor-pointer duration-300"
-						:class="discipline.borderColor"
-					>
-						<img
-							:src="
-								require(`../../assets/games/${discipline.tag}_logo_32.svg`)
-							"
-							class="w-12 h-12 p-2"
-						/>
-					</div>
-				</router-link>
-			</div>
-		</div>
-		<div
-			v-for="(match, index) in items.filterMatches"
-			:key="match.id"
-			class="px-6"
-		>
-			<div
-				class="matchesWrapper my-4 shadow-2xl border rounded-lg border-teal-700"
-			>
-				<div
-					class="py-8 px-6 bg-gray-500 rounded-l-lg"
-					:class="match.color"
-				>
-					<img
-						:src="
-							require(`../../assets/games/${match.game}_logo_32.svg`)
-						"
-						class="w-8 h-8"
-					/>
+		<div v-for="(match, index) in items.filterMatches" :key="match.id" class="px-6">
+            <div class="matchesWrapper my-4 shadow-2xl border rounded-lg border-teal-800">
+                <div class="py-8 px-6 bg-gray-500 rounded-l-lg" :class="match.color">
+					<img :src="require(`../../assets/games/${match.game}_logo_32.svg`)" class="w-8 h-8" />
 				</div>
 				<ul class="min-w-full grid grid-cols-4 bg-gray-800">
-					<li
-						class="col-start-1 col-end-2 text-center flex flex-col justify-center items-center"
-					>
+					<li class="col-start-1 col-end-2 text-center flex flex-col justify-center items-center">
 						<div>{{ match.nameA }}</div>
-						<button
-							class="bg-gray-900 w-16 py-1 rounded-md border border-yellow-200 duration-500 hover:bg-yellow-300 hover:text-black"
-							@click="showMatchModal(index, 'A')"
-						>
+						<button class="bg-gray-900 w-16 py-1 rounded-md border border-yellow-200 duration-500 hover:bg-yellow-300 hover:text-black" 
+                            @click="showMatchModal(index, 'A')"
+                        >
 							{{ match.oddsA }}
 						</button>
 					</li>
-					<li
-						class="col-start-2 col-end-3 flex justify-center items-center"
-					>
-						<img
-							:src="
-								require(`../../assets/teams/${match.game}/${match.teamA}.png`)
-							"
-							class="w-16 h-16"
-						/>
+					<li class="col-start-2 col-end-3 flex justify-center items-center">
+						<img :src="require(`../../assets/teams/${match.game}/${match.teamA}.png`)" class="w-16 h-16" />
 					</li>
-					<li
-						class="col-start-3 col-end-4 flex justify-center items-center"
-					>
-						<img
-							:src="
-								require(`../../assets/teams/${match.game}/${match.teamB}.png`)
-							"
-							class="w-16 h-16"
-						/>
+					<li class="col-start-3 col-end-4 flex justify-center items-center">
+						<img :src="require(`../../assets/teams/${match.game}/${match.teamB}.png`)" class="w-16 h-16" />
 					</li>
-					<li
-						class="col-start-4 col-end-5 text-center flex flex-col justify-center items-center"
-					>
+					<li class="col-start-4 col-end-5 text-center flex flex-col justify-center items-center">
 						<div>{{ match.nameB }}</div>
-						<button
-							@click="showMatchModal(index, 'B')"
-							class="bg-gray-900 w-16 py-1 rounded-md border border-red-200 duration-500 hover:bg-red-300 hover:text-black"
+						<button class="bg-gray-900 w-16 py-1 rounded-md border border-red-200 duration-500 hover:bg-red-300 hover:text-black"
+                            @click="showMatchModal(index, 'B')"
 						>
 							{{ match.oddsB }}
 						</button>
 					</li>
 				</ul>
-				<div
-					class="py-8 px-6 rounded-r-lg bg-gray-500"
-					:class="match.color"
-				>
-					<img
-						:src="
-							require(`../../assets/games/${match.game}_logo_32.svg`)
-						"
-						class="w-8 h-8"
-					/>
+				<div class="py-8 px-6 rounded-r-lg bg-gray-500" :class="match.color">
+					<img :src="require(`../../assets/games/${match.game}_logo_32.svg`)" class="w-8 h-8" />
 				</div>
 			</div>
 		</div>
 		<t-modal header="Deposit funds" v-model="matchModal" class="p-10">
 			<div class="flex-col justify-around text-center h-full">
 				<p>
-					Team name:
-					{{
-						items.filterMatches[this.matchNumber][
-							`name${activeTeam}`
-						]
-					}}
+					Team name: {{items.filterMatches[this.matchNumber][`name${activeTeam}`]}}
 				</p>
 				<div>
-					Bet odds:
-					{{
-						items.filterMatches[this.matchNumber][
-							`odds${activeTeam}`
-						]
-					}}
+					Bet odds: {{items.filterMatches[this.matchNumber][`odds${activeTeam}`]}}
 				</div>
 				<div class="flex justify-center">
 					<p class="pr-2">Enter bet amount</p>
@@ -125,14 +53,7 @@
 					/>
 				</div>
 				<div>
-					Possible return:
-					{{
-						(
-							items.filterMatches[this.matchNumber][
-								`odds${activeTeam}`
-							] * betAmount
-						).toFixed(2)
-					}}$
+					Possible return: {{(items.filterMatches[this.matchNumber][`odds${activeTeam}`] * betAmount).toFixed(2)}}$
 				</div>
 			</div>
 			<template v-slot:footer>
@@ -142,10 +63,8 @@
 				</div>
 			</template>
 		</t-modal>
-		<div
-			v-if="matchModal"
-			class="absolute z-30 inset-0 opacity-50 bg-black"
-		></div>
+		<div v-if="matchModal" class="absolute z-30 inset-0 opacity-50 bg-black">
+        </div>
 	</div>
 </template>
 
@@ -189,18 +108,16 @@
 			},
 			showMatchModal(x, y) {
 				if (this.items.clearButton == false) {
+                    this.matchNumber = x;
 					this.activeTeam = y;
 					this.matchModal = !this.matchModal;
-					this.matchNumber = x;
 				} else {
 					alert('Please clear your bets first.');
 				}
 			},
 			placeABet() {
 				if (this.items.funds < this.betAmount) {
-					alert(
-						'Please make sure you have enough funds. Try depositing some money first.'
-					);
+					alert('Please make sure you have enough funds. Try depositing some money first.');
 				} else if (this.items.bets.length >= 10) {
 					alert('You can only have a maximum of 10 bets active!');
 				} else if (this.betAmount < 0) {
@@ -214,8 +131,7 @@
 					this.matchModal = false;
 					let match = this.items.filterMatches[this.matchNumber];
 					let newBet = {};
-					let possibleReturn =
-						this.betAmount * match[`odds${this.activeTeam}`];
+					let possibleReturn = this.betAmount * match[`odds${this.activeTeam}`];
 					newBet['teamA'] = match.nameA;
 					newBet['teamB'] = match.nameB;
 					newBet['winner'] = match[`name${this.activeTeam}`];

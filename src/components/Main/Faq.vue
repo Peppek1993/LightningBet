@@ -1,9 +1,9 @@
 <template>
 	<div class="p-6">
 		<div v-for="question in questions">
-			<p class="text-3xl font-thin text-teal-700">
+			<h1 class="text-3xl font-thin text-teal-700">
 				{{ question.question }}
-			</p>
+			</h1>
 			<p class="font-hairline">{{ question.answer }}</p>
 		</div>
 	</div>
@@ -30,7 +30,7 @@
 					},
 					{
 						question:
-							'What language and/or technology you used to built this website?',
+							'What language and/or technology you used to build this website?',
 						answer:
 							"This website is built using Vue. I've also included Tailwind CSS during the development and really enjoyed it so I stuck with it. ",
 					},

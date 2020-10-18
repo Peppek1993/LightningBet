@@ -1,40 +1,42 @@
 <template>
 	<div class="row-start-2 row-end-3 overflow-auto py-4 sm:py-16 pb-20">
 		<app-new-match></app-new-match>
-		<div v-for="(match, index) in items.filterMatches" :key="match.id" class="px-6">
-            <div class="matchesWrapper my-4 shadow-2xl border rounded-lg border-teal-800">
-                <div class="py-8 px-6 bg-gray-500 rounded-l-lg" :class="match.color">
-					<img :src="require(`../../assets/games/${match.game}_logo_32.svg`)" class="w-8 h-8" />
-				</div>
-				<ul class="min-w-full grid grid-cols-4 bg-gray-800">
-					<li class="col-start-1 col-end-2 text-center flex flex-col justify-center items-center">
-						<div>{{ match.nameA }}</div>
-						<button class="bg-gray-900 w-16 py-1 rounded-md border border-yellow-200 duration-500 hover:bg-yellow-300 hover:text-black" 
-                            @click="showMatchModal(index, 'A')"
-                        >
-							{{ match.oddsA }}
-						</button>
-					</li>
-					<li class="col-start-2 col-end-3 flex justify-center items-center">
-						<img :src="require(`../../assets/teams/${match.game}/${match.teamA}.png`)" class="w-16 h-16" />
-					</li>
-					<li class="col-start-3 col-end-4 flex justify-center items-center">
-						<img :src="require(`../../assets/teams/${match.game}/${match.teamB}.png`)" class="w-16 h-16" />
-					</li>
-					<li class="col-start-4 col-end-5 text-center flex flex-col justify-center items-center">
-						<div>{{ match.nameB }}</div>
-						<button class="bg-gray-900 w-16 py-1 rounded-md border border-red-200 duration-500 hover:bg-red-300 hover:text-black"
-                            @click="showMatchModal(index, 'B')"
-						>
-							{{ match.oddsB }}
-						</button>
-					</li>
-				</ul>
-				<div class="py-8 px-6 rounded-r-lg bg-gray-500" :class="match.color">
-					<img :src="require(`../../assets/games/${match.game}_logo_32.svg`)" class="w-8 h-8" />
-				</div>
-			</div>
-		</div>
+        <transition-group name="fade" enter-active-class="fadeInLeft" leave-active-class="fadeOutLeft">
+            <div v-for="(match, index) in items.filterMatches" :key="match.id" class="px-6">
+                <div class="matchesWrapper my-4 shadow-2xl border rounded-lg border-teal-800">
+                    <div class="py-8 px-6 bg-gray-500 rounded-l-lg" :class="match.color">
+                        <img :src="require(`../../assets/games/${match.game}_logo_32.svg`)" class="w-8 h-8" />
+                    </div>
+                    <ul class="min-w-full grid grid-cols-4 bg-gray-800">
+                        <li class="col-start-1 col-end-2 text-center flex flex-col justify-center items-center">
+                            <div>{{ match.nameA }}</div>
+                            <button class="bg-gray-900 w-16 py-1 rounded-md border border-yellow-200 duration-500 hover:bg-yellow-300 hover:text-black" 
+                                @click="showMatchModal(index, 'A')"
+                            >
+                                {{ match.oddsA }}
+                            </button>
+                        </li>
+                        <li class="col-start-2 col-end-3 flex justify-center items-center">
+                            <img :src="require(`../../assets/teams/${match.game}/${match.teamA}.png`)" class="w-16 h-16" />
+                        </li>
+                        <li class="col-start-3 col-end-4 flex justify-center items-center">
+                            <img :src="require(`../../assets/teams/${match.game}/${match.teamB}.png`)" class="w-16 h-16" />
+                        </li>
+                        <li class="col-start-4 col-end-5 text-center flex flex-col justify-center items-center">
+                            <div>{{ match.nameB }}</div>
+                            <button class="bg-gray-900 w-16 py-1 rounded-md border border-red-200 duration-500 hover:bg-red-300 hover:text-black"
+                                @click="showMatchModal(index, 'B')"
+                            >
+                                {{ match.oddsB }}
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="py-8 px-6 rounded-r-lg bg-gray-500" :class="match.color">
+                        <img :src="require(`../../assets/games/${match.game}_logo_32.svg`)" class="w-8 h-8" />
+                    </div>
+                </div>
+            </div>
+        </transition-group>
 		<t-modal header="Deposit funds" v-model="matchModal" class="p-10">
 			<div class="flex-col justify-around text-center h-full">
 				<p>

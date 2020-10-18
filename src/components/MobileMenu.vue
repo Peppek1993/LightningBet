@@ -43,48 +43,48 @@
         <div class="flex justify-around px-6 pb-2 bg-gray-800 font-hairline text-center" v-show="socialMenu">
             <a href="https://github.com/Peppek1993" target="_blank">
                 <div>
-				    <i class="fab fa-github px-2"></i>
+                    <i class="fab fa-github px-2"></i>
                     <p class="text-xs">Github</p>                    
                 </div>
             </a>
             <a href="https://www.facebook.com" target="_blank">
                 <div>
-				    <i class="fab fa-facebook px-2"></i>
+                    <i class="fab fa-facebook px-2"></i>
                     <p class="text-xs">Facebook</p>
                 </div>
             </a>
             <a href="https://www.linkedin.com/in/adam-partyka-0659a5177/" target="_blank">
                 <div>
-				    <i class="fab fa-linkedin px-2"></i>
+                    <i class="fab fa-linkedin px-2"></i>
                     <p class="text-xs">LinkedIn</p>
                 </div>
             </a>
             <a href="https://instagram.com" target="_blank">
                 <div>
-				    <i class="fab fa-instagram px-2"></i>
+                    <i class="fab fa-instagram px-2"></i>
                     <p class="text-xs">Instagram</p>
                 </div>
             </a>
 		</div>
         <hr class="border-gray-700">
         <div class="flex sm:hidden justify-between px-6 pt-4"> 
-		    <div v-for="discipline in decideCategory()">
-			    <router-link :to="discipline.type">
-				    <div
-					    @click="filterByGame(discipline.tag)"
-					    class="hover:bg-gray-600 hover:bg-opacity-25 border rounded-lg px-4 cursor-pointer duration-300"
-					    :class="discipline.borderColor"
-				    >
+            <div v-for="discipline in decideCategory()">
+                <router-link :to="discipline.type">
+                    <div
+                        @click="filterByGame(discipline.tag)"
+                        class="hover:bg-gray-600 hover:bg-opacity-25 border rounded-lg px-4 cursor-pointer duration-300"
+                        :class="discipline.borderColor"
+                    >
 					<img
 						:src="
 							require(`../assets/games/${discipline.tag}_logo_32.svg`)
 						"
 						class="w-12 h-12 p-2"
 					/>
-				    </div>
-			    </router-link>
-		    </div>
-	    </div>
+                    </div>
+                </router-link>
+            </div>
+        </div>
     </div>
 </template>
 

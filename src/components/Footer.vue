@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<app-description></app-description>
-		<div class="px-4 mt-16 h-auto bg-gray-700 flex justify-around items-center font-thin">
+		<div class="px-4 mt-16 h-auto bg-gray-700 flex justify-around items-center font-thin py-2">
 			<img
 				src="../assets/main_logo.svg"
 				alt="Lightning Bet Logo"
@@ -14,12 +14,8 @@
                     adampartyka1993@gmail.com
                 </a>
 			</p>
-			<p class="w-auto">
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum,
-				voluptates ipsam aspernatur non natus sint.
-			</p>
 		</div>
-		<div class="flex justify-between p-4">
+		<div class="flex justify-between p-4 py-4">
 			<div v-for="currency in crypto">
 				<img :src="require(`../assets/crypto/${currency}.png`)" />
 			</div>

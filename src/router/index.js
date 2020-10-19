@@ -27,4 +27,8 @@ export const routes = [{
         path: '/faq',
         component: Faq
     },
+    {
+        path: '/',
+        component: DisplayMatches
+    },
 ];

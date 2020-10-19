@@ -1,5 +1,5 @@
 <template>
-	<div class="pb-10">
+	<div class="pb-20">
 		<app-description></app-description>
 		<div class="mt-10 bg-gray-700 flex justify-between items-center font-thin">
 			<img

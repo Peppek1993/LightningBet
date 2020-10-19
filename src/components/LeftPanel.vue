@@ -19,22 +19,22 @@
 				</div>
 			</div>
 			<div>
-				<router-link to="leaderboard">
+				<router-link to="/leaderboard">
 					<a class="menuItem">
 						<i class="fas fa-trophy pr-2"></i> Leaderboard
 					</a>
 				</router-link>
-				<router-link to="rewards">
+				<router-link to="/rewards">
 					<a class="menuItem">
 						<i class="fas fa-gift pr-2"></i> Rewards
 					</a>
 				</router-link>
-				<router-link to="referral">
+				<router-link to="/referral">
 					<a class="menuItem">
 						<i class="fas fa-user-plus pr-2"></i> Referral
 					</a>
 				</router-link>
-				<router-link to="faq">
+				<router-link to="/faq">
 					<a class="menuItem">
 						<i class="far fa-question-circle pr-2"></i> Faq
 					</a>
@@ -80,27 +80,27 @@
 				</div>
 			</div>
 			<div>
-				<router-link to="leaderboard">
+				<router-link to="/leaderboard">
 					<a class="menuItem">
 						<i class="fas fa-trophy"></i>
 					</a>
 				</router-link>
-				<router-link to="rewards">
+				<router-link to="/rewards">
 					<a class="menuItem">
 						<i class="fas fa-gift"></i>
 					</a>
 				</router-link>
-				<router-link to="referral">
+				<router-link to="/referral">
 					<a class="menuItem">
 						<i class="fas fa-user-plus"></i>
 					</a>
 				</router-link>
-				<router-link to="faq">
+				<router-link to="/faq">
 					<a class="menuItem">
 						<i class="far fa-question-circle"></i>
 					</a>
 				</router-link>
-				<router-link to="blog">
+				<router-link to="/blog">
 					<a class="menuItem">
 						<i class="fas fa-newspaper"></i>
 					</a>

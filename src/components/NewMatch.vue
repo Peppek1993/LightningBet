@@ -7,11 +7,6 @@
 			<i class="fas fa-plus hidden sm:inline-block"></i>
 			New Match
 		</div>
-		<transition
-			name="fade"
-			enter-active-class="fadeInDown"
-			leave-active-class="fadeOutUp"
-		>
 			<form v-show="items.newMatchModal" class="px-6">
 				<div class="flex">
 					<p class="pr-2 py-2 flex-col">
@@ -27,7 +22,6 @@
 							<option value="sport">Sport</option>
 						</select>
 					</p>
-					<transition name="fadeLeft" mode="in-out">
 						<p v-if="newMatchType !== ''" class="p-2">
 							<label for="newMatchTeamA">
 								<p class="font-thin text-teal-600">
@@ -46,10 +40,8 @@
 								>
 							</select>
 						</p>
-					</transition>
 				</div>
 				<div class="flex">
-					<transition name="fadeLeft" mode="in-out">
 						<p v-if="newMatchGame !== ''" class="pr-2 py-2">
 							<label for="newMatchNameA">
 								<p class="font-thin text-teal-600">
@@ -67,8 +59,6 @@
 								>
 							</select>
 						</p>
-					</transition>
-					<transition name="fadeLeft" mode="in-out">
 						<p v-if="newMatchGame !== ''" class="p-2">
 							<label for="newMatchNameB">
 								<p class="font-thin text-teal-600">
@@ -86,9 +76,7 @@
 								>
 							</select>
 						</p>
-					</transition>
 				</div>
-				<transition name="fadeLeft" mode="in-out">
 					<p
 						v-if="newMatchNameA !== '' && newMatchNameB !== ''"
 						class="py-2"
@@ -107,15 +95,12 @@
 							class="h-auto  font-thin bg-teal-500 text-black  rounded-md p-2 w-auto focus:outline-none"
 						/>
 					</p>
-				</transition>
-				<transition name="fadeLeft" mode="in-out">
 					<button
 						class="p-2 border-teal-600 border focus:outline-none rounded-md hover:bg-teal-700 duration-500 w-24"
 						@click.prevent="addNewMatch()"
 					>
 						Add
 					</button>
-				</transition>
 			</form>
 		</transition>
 	</div>

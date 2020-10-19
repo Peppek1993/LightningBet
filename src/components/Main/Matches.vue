@@ -1,7 +1,6 @@
 <template>
-	<div class="row-start-2 row-end-3 overflow-auto py-4 sm:py-16 pb-20">
+	<div class="row-start-2 row-end-3 overflow-auto py-4 sm:py-16 pb-20 font-thin">
 		<app-new-match></app-new-match>
-        <transition-group name="fade" enter-active-class="fadeInLeft" leave-active-class="x">
             <div v-for="(match, index) in items.filterMatches" :key="match.id" class="px-6">
                 <div class="matchesWrapper my-4 shadow-2xl border rounded-lg border-teal-800">
                     <div class="py-8 px-2  rounded-l-lg" :class="match.color">
@@ -10,7 +9,7 @@
                     <ul class="min-w-full grid grid-cols-4 bg-gray-800">
                         <li class="col-start-1 col-end-2 text-center flex flex-col justify-center items-center">
                             <div>{{ match.nameA }}</div>
-                            <button class="bg-gray-900 w-12 sm:w-16 py-1 rounded-md border border-yellow-200 duration-500 hover:bg-yellow-300 hover:text-black" 
+                            <button class="font-thin bg-gray-900 w-12 sm:w-16 py-1 rounded-md border border-yellow-200 duration-500 hover:bg-yellow-300 hover:text-black" 
                                 @click="showMatchModal(index, 'A')"
                             >
                                 {{ match.oddsA }}
@@ -24,7 +23,7 @@
                         </li>
                         <li class="col-start-4 col-end-5 text-center flex flex-col justify-center items-center">
                             <div>{{ match.nameB }}</div>
-                            <button class="bg-gray-900 w-12 sm:w-16 py-1 rounded-md border border-red-200 duration-500 hover:bg-red-300 hover:text-black"
+                            <button class="font-thin bg-gray-900 w-12 sm:w-16 py-1 rounded-md border border-red-200 duration-500 hover:bg-red-300 hover:text-black"
                                 @click="showMatchModal(index, 'B')"
                             >
                                 {{ match.oddsB }}
@@ -36,7 +35,6 @@
                     </div>
                 </div>
             </div>
-        </transition-group>
 		<t-modal header="Deposit funds" v-model="matchModal" class="p-10">
 			<div class="flex-col justify-around text-center h-full">
 				<p>

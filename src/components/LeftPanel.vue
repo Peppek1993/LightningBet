@@ -126,7 +126,8 @@
 			decideCategory() {
 				if (
 					this.$route.path === '/' ||
-					this.$route.path === '/esport'
+					this.$route.path === '/esport' ||
+                    this.$route.path === '/LightningBet'
 				) {
 					let filteredCategory = this.items.disciplinesInfo.filter(
 						function(match) {

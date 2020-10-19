@@ -31,4 +31,8 @@ export const routes = [{
         path: '/',
         component: DisplayMatches
     },
+    {
+        path: '/LightningBet',
+        component: DisplayMatches
+    },
 ];

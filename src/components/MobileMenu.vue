@@ -1,6 +1,6 @@
 <template>
     <div class="text-2xl block sm:hidden">
-        <div class="flex justify-around px-6 py-2 bg-gray-800">
+        <div class="flex justify-between items-center px-6 py-2 bg-gray-800">
             <router-link to="leaderboard">
                 <div class="text-center font-hairline">
 					<i class="fas fa-trophy cursor-pointer"></i>
@@ -25,12 +25,6 @@
                     <p class="text-xs">FAQ</p>
                 </div>
             </router-link>
-                <a href="https://github.com/Peppek1993" target="_blank">
-                    <div class="text-center font-hairline">
-                    <i class="fas fa-newspaper cursor-pointer"></i>
-                    <p class="text-xs">Blog</p>
-                    </div>
-                </a>
                 <div class="text-center font-hairline" v-show="socialMenu === false">
                     <i class="fas fa-chevron-down cursor-pointer" @click="socialMenu = !socialMenu"></i>
                     <p class="text-xs">More</p>
@@ -43,28 +37,34 @@
         <div class="flex justify-around px-6 pb-2 bg-gray-800 font-hairline text-center" v-show="socialMenu">
             <a href="https://github.com/Peppek1993" target="_blank">
                 <div>
-                    <i class="fab fa-github px-2"></i>
+                    <i class="fab fa-github"></i>
                     <p class="text-xs">Github</p>                    
                 </div>
             </a>
             <a href="https://www.facebook.com" target="_blank">
                 <div>
-                    <i class="fab fa-facebook px-2"></i>
+                    <i class="fab fa-facebook"></i>
                     <p class="text-xs">Facebook</p>
                 </div>
             </a>
             <a href="https://www.linkedin.com/in/adam-partyka-0659a5177/" target="_blank">
                 <div>
-                    <i class="fab fa-linkedin px-2"></i>
+                    <i class="fab fa-linkedin"></i>
                     <p class="text-xs">LinkedIn</p>
                 </div>
             </a>
             <a href="https://instagram.com" target="_blank">
                 <div>
-                    <i class="fab fa-instagram px-2"></i>
+                    <i class="fab fa-instagram"></i>
                     <p class="text-xs">Instagram</p>
                 </div>
             </a>
+            <a href="https://github.com/Peppek1993" target="_blank">
+                    <div class="text-center font-hairline">
+                    <i class="fas fa-newspaper cursor-pointer"></i>
+                    <p class="text-xs">Blog</p>
+                    </div>
+                </a>
 		</div>
         <hr class="border-gray-700">
         <div class="flex sm:hidden justify-between px-6 pt-4"> 

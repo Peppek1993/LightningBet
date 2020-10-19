@@ -1,36 +1,36 @@
 <template>
-	<div class="col-start-1 col-end-6 row-start-1 row-end-2 z-50 shadow-layout grid grid-cols-3 sm:grid-cols-headerWrapper">
-		<div class="col-start-1 col-end-2 py-3 sm:py-2 pl-1">
+	<div class="col-start-1 col-end-6 row-start-1 row-end-2 z-50 shadow-layout flex items-center justify-between px-6 sm:px-0">
+		<div>
 			<router-link to="/esport">
 				<img
 					src="../assets/main_logo.svg"
 					alt="Lightning Bet Logo"
 					@click="filterByType('esport')"
-					class="h-10 sm:h-12 px-6 sm:w-full duration-500 hover:bg-gray-800 rounded-lg"
+					class="w-full h-12 sm:px-3 duration-500 hover:bg-gray-800 rounded-lg"
 				/>
 			</router-link>
 		</div>
-		<div class="flex col-start-2 col-end-3 items-center justify-center sm:justify-start font-hairline">
+		<div class="flex font-hairline text-center">
 			<router-link to="/esport">
 				<div
 					@click="filterByType('esport')"
-					class="text-center hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-lg sm:text-sm tracking-wide hover:text-teal-400 cursor-pointer"
+					class=" hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-lg sm:text-sm tracking-wide hover:text-teal-400 cursor-pointer"
 				>
 					<i class="fas fa-gamepad hidden sm:inline-block"></i>
-					Esports
+					Esport
 				</div>
 			</router-link>
 			<router-link to="/sport">
 				<div
 					@click="filterByType('sport')"
-					class="text-center hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-lg sm:text-sm tracking-wide hover:text-teal-400 cursor-pointer"
+					class="hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-lg sm:text-sm tracking-wide hover:text-teal-400 cursor-pointer"
 				>
 					<i class="fas fa-futbol hidden sm:inline-block"></i>
 					Sport
 				</div>
 			</router-link>
 			<div
-				class="text-center hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-lg sm:text-sm tracking-wide hover:text-teal-400 cursor-pointer"
+				class="hidden sm:block hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-lg sm:text-sm tracking-wide hover:text-teal-400 cursor-pointer"
 				@click="gamesAlert()"
 			>
 				<i class="fas fa-dice hidden sm:inline-block"></i>

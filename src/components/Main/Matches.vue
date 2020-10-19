@@ -69,7 +69,7 @@
 </template>
 
 <script>
-	import { mapGetters, mapActions } from 'vuex';
+	import { mapGetters } from 'vuex';
 	import NewMatch from './../NewMatch.vue';
 	export default {
 		data() {
@@ -85,27 +85,6 @@
 			...mapGetters(['items']),
 		},
 		methods: {
-			...mapActions(['filterByType', 'filterByGame']),
-			decideCategory() {
-				if (
-					this.$route.path === '/' ||
-					this.$route.path === '/esport'
-				) {
-					let filteredCategory = this.items.disciplinesInfo.filter(
-						function(match) {
-							return match.type == 'esport';
-						}
-					);
-					return filteredCategory;
-				} else if (this.$route.path === '/sport') {
-					let filteredCategory = this.items.disciplinesInfo.filter(
-						function(match) {
-							return match.type == 'sport';
-						}
-					);
-					return filteredCategory;
-				}
-			},
 			showMatchModal(x, y) {
 				if (this.items.clearButton == false) {
                     this.matchNumber = x;
@@ -152,10 +131,7 @@
 					}
 					this.items.totalReturn = returnAmount.toFixed(2);
 				}
-			},
-		},
-		beforeMount() {
-			this.filterByType('esport');
+            },
 		},
 		components: {
 			appNewMatch: NewMatch,

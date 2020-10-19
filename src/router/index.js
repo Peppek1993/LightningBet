@@ -28,11 +28,8 @@ export const routes = [{
         component: Faq
     },
     {
-        path: '/',
-        component: DisplayMatches
-    },
-    {
         path: '/LightningBet',
-        component: DisplayMatches
-    },
+        component: DisplayMatches,
+        alias: '/'
+    }
 ];

@@ -34,6 +34,7 @@
                     <p class="text-xs">Hide</p>
                 </div>
         </div>
+        <transition name="slide-fade">
         <div class="flex justify-around px-6 pb-2 bg-gray-800 font-hairline text-center" v-show="socialMenu">
             <a href="https://github.com/Peppek1993" target="_blank">
                 <div>
@@ -66,6 +67,7 @@
                     </div>
                 </a>
 		</div>
+        </transition>
         <hr class="border-gray-700">
         <div class="flex sm:hidden justify-between px-6 pt-4"> 
             <div v-for="discipline in decideCategory()">
@@ -126,5 +128,17 @@ export default {
 </script>
 
 <style>
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateY(-10px);
+  opacity: 0;
+}
 
 </style>

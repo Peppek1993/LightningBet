@@ -5,10 +5,7 @@ import Referral from '../components/Main/Referral.vue'
 import Faq from '../components/Main/Faq.vue'
 
 export const routes = [{
-        path: '/esport',
-        component: DisplayMatches
-    }, {
-        path: '/sport',
+        path: '*',
         component: DisplayMatches
     },
     {
@@ -27,9 +24,4 @@ export const routes = [{
         path: '/faq',
         component: Faq
     },
-    {
-        path: '/LightningBet',
-        component: DisplayMatches,
-        alias: '/'
-    }
 ];

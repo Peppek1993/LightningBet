@@ -134,10 +134,6 @@
 					'Sorry, Games are currently unavailable. Please check back later!'
 				);
             },
-            beforeMount() {
-                console.log('asdf');
-                this.filterByType('esport')
-            }
 		},
 		computed: {
 			...mapGetters(['items']),

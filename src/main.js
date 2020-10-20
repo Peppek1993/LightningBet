@@ -44,6 +44,7 @@ Vue.use(VueFormulate)
 export const router = new VueRouter({
     routes,
     mode: 'history',
+    base: '/LightningBet'
 });
 new Vue({
     router,

@@ -140,7 +140,7 @@
 		},
 		data() {
 			return {
-				depositModal: true,
+				depositModal: false,
 				depositAmount: 5,
 			};
         },

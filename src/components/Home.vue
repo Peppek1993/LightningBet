@@ -51,4 +51,8 @@ export default {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+select {
+  -webkit-appearance: none;
+}
 </style>

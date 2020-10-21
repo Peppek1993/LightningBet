@@ -5,7 +5,7 @@ import store from "./store"
 import { routes } from "./router/index.js"
 import "@/assets/css/style.css"
 import VueTailwind from "vue-tailwind"
-import VueFormulate from "@braid/vue-formulate"
+import Notifications from "vue-notification"
 
 const theme = {
   TModal: {
@@ -37,7 +37,7 @@ Vue.config.productionTip = false
 
 Vue.use(VueRouter)
 Vue.use(VueTailwind, theme)
-Vue.use(VueFormulate)
+Vue.use(Notifications)
 
 export const router = new VueRouter({
   routes,

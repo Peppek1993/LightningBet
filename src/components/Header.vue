@@ -2,6 +2,8 @@
   <div
     class="col-start-1 col-end-6 z-50 shadow-layout grid grid-cols-6 sm:flex items-center justify-between px-6 sm:px-0"
   >
+    <notifications group="games" position="top left" />
+    <notifications group="payment" position="top center" />
     <div class="col-start-1 col-end-3">
       <router-link to="/esport">
         <img
@@ -58,15 +60,19 @@
         </a>
       </div>
     </div>
-    <t-modal header="Deposit funds" v-model="depositModal" class="p-10">
+    <t-modal
+      header="Deposit funds"
+      v-model="depositModal"
+      class="p-10 focus:outline-none"
+    >
       <div class="flex justify-between text-center items-center">
         <div class="flex">
           <p>Payment method:</p>
           <i
             v-for="method in items.paymentMethods"
-            class="fab py-2 px-1 text-4xl cursor-pointer paymentMethod"
-            :class="method"
-            @click="makeActive"
+            class="fab py-2 px-1 text-4xl cursor-pointer"
+            :class="[{ 'text-teal-500': method == activeElement }, method]"
+            @click="makeActive(method)"
           />
         </div>
         <div>
@@ -88,8 +94,13 @@
       </div>
       <template v-slot:footer>
         <div class="flex justify-between">
-          <button class="font-hairline">Cancel</button>
-          <button @click="depositCommit" class="font-hairline">Deposit</button>
+          <button class="font-hairline focus:outline-none">Cancel</button>
+          <button
+            @click="depositCommit"
+            class="font-hairline focus:outline-none"
+          >
+            Deposit
+          </button>
         </div>
       </template>
     </t-modal>
@@ -105,34 +116,33 @@ import { mapActions, mapGetters } from "vuex"
 export default {
   methods: {
     ...mapActions(["filterByType"]),
-    makeActive() {
-      let icons = document.getElementsByClassName("paymentMethod")
-      for (let i = 0; i < icons.length; i++) {
-        icons[i].addEventListener("click", function() {
-          let current = document.getElementsByClassName(" text-teal-500")
-          if (current.length > 0) {
-            current[0].className = current[0].className.replace(
-              " text-teal-500",
-              ""
-            )
-          } else this.className += " text-teal-500"
-        })
-      }
+    makeActive(paymentName) {
+      this.activeElement = paymentName
     },
     depositCommit() {
-      if (document.getElementsByClassName("text-teal-500").length > 0) {
+      if (this.activeElement !== null) {
         this.items.funds += parseInt(this.depositAmount)
         this.depositModal = false
       } else {
-        alert("Please choose a payment method.")
+        this.$notify({
+          group: "payment",
+          title: "Payment failed",
+          text: "Please choose a payment method",
+          type: "warn",
+        })
       }
     },
     displayFunds() {
-      let funds = this.items.funds.toFixed(2)
-      return funds
+      return this.items.funds.toFixed(2)
     },
     gamesAlert() {
-      alert("Sorry, Games are currently unavailable. Please check back later!")
+      this.$notify({
+        group: "games",
+        title: "Games not available",
+        text:
+          "Sorry, Games are currently unavailable. Please check back later!",
+        type: "warn",
+      })
     },
   },
   computed: {
@@ -142,6 +152,7 @@ export default {
     return {
       depositModal: false,
       depositAmount: 5,
+      activeElement: null,
     }
   },
 }

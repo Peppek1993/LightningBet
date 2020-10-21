@@ -3,8 +3,9 @@
     class="col-start-4 col-end-6 hidden lg:inline-block overflow-auto shadow-layoutright lg:h-bets h-full"
     :key="betsKey"
   >
+    <notification group="bet" position="top center" />
     <div class="hidden lg:inline-block">
-      <div v-for="bet in items.bets" class="p-3 flex-col w-full">
+      <div v-for="bet in items.bets" class="p-3 flex-col w-full px-5">
         <div
           class="border-teal-400 bg-gray-800 border rounded-md flex-col px-3 py-1 text-center text-sm font-light"
           :class="bet.result"
@@ -63,11 +64,13 @@ export default {
   methods: {
     simulateBet() {
       this.items.wonAmount = 0
-      this.items.lostBets = []
-      this.items.wonBets = []
+      this.items.lostBets = this.items.wonBets = []
       let bets = this.items.bets
       if (bets.length < 1) {
-        alert("Place some bets first.")
+        this.$notify({
+          group: "bet",
+          text: "Place some bets first.",
+        })
       } else {
         for (let i = 0; i < bets.length; i++) {
           let x = Math.random()
@@ -88,8 +91,7 @@ export default {
       }
     },
     clearBets() {
-      this.items.totalStake = 0
-      this.items.totalReturn = 0
+      this.items.totalStake = this.items.totalReturn = 0
       this.items.bets = []
       this.simulateButton = true
       this.items.clearButton = false

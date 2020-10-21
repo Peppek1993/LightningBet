@@ -2,6 +2,7 @@
   <div
     class="row-start-2 row-end-3 overflow-auto py-4 sm:py-16 pb-20 font-thin"
   >
+    <notifications group="bet" position="top center" />
     <app-new-match></app-new-match>
     <div
       v-for="(match, index) in items.filterMatches"
@@ -134,22 +135,41 @@ export default {
         this.activeGame = z
         this.matchModal = !this.matchModal
       } else {
-        alert("Please clear your bets first.")
+        this.$notify({
+          group: "bet",
+          text: "Please clear your bets first.",
+          type: "error",
+        })
       }
     },
     placeABet() {
       if (this.items.funds < this.betAmount) {
-        alert(
-          "Please make sure you have enough funds. Try depositing some money first."
-        )
+        this.$notify({
+          group: "bet",
+          text:
+            "Please make sure you have enough funds. Try depositing some money first.",
+        })
       } else if (this.items.bets.length >= 10) {
-        alert("You can only have a maximum of 10 bets active!")
+        this.$notify({
+          group: "bet",
+          text: "You can only have a maximum of 10 bets active!",
+          type: "warn",
+        })
       } else if (this.betAmount < 0) {
-        alert("Please enter a correct amount")
+        this.$notify({
+          group: "bet",
+          text: "Please enter a correct amount.",
+        })
       } else if (this.betAmount > 100) {
-        alert("Maximum bet is 100$.")
+        this.$notify({
+          group: "bet",
+          text: "Maximum bet is 100$.",
+        })
       } else if (this.betAmount == null) {
-        alert("Enter a bet amount first.")
+        this.$notify({
+          group: "bet",
+          text: "Enter a bet amount first",
+        })
       } else {
         this.items.funds -= this.betAmount
         this.matchModal = false

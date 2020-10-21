@@ -1,5 +1,6 @@
 <template>
   <div class="col-start-1">
+    <notification group="bet" position="top center" />
     <div
       v-show="!expanded"
       class=" bg-teal-900 flex lg:hidden rounded-md border-2 border-teal-700 fixed bottom-0 w-full sm:w-11/12 h-16 justify-around items-center font-thin sm:ml-16"
@@ -105,33 +106,34 @@ export default {
   methods: {
     simulateBet() {
       this.items.wonAmount = 0
-      this.items.lostBets = []
-      this.items.wonBets = []
+      this.items.lostBets = this.items.wonBets = []
       let bets = this.items.bets
       if (bets.length < 1) {
-        alert("Place some bets first.")
-      } else {
-        for (let i = 0; i < bets.length; i++) {
-          let x = Math.random()
-          if (x > bets[i].chance) {
-            this.items.lostBets.push(bets[i])
-            bets[i].result = "bg-red-700"
-            this.betsKey += 1
-          } else {
-            this.items.wonBets.push(bets[i])
-            bets[i].result = "bg-green-700"
-            this.betsKey += 1
-            this.items.funds += Number(bets[i].possibleReturn.toFixed(2))
-            this.items.wonAmount += Number(bets[i].possibleReturn.toFixed(2))
-          }
+        this.$notify({
+          group: "bet",
+          text: "Place some bets first.",
+        })
+      }
+      for (let i = 0; i < bets.length; i++) {
+        let x = Math.random()
+        if (x > bets[i].chance) {
+          this.items.lostBets.push(bets[i])
+          bets[i].result = "bg-red-700"
+          this.betsKey += 1
+        } else {
+          this.items.wonBets.push(bets[i])
+          bets[i].result = "bg-green-700"
+          this.betsKey += 1
+          this.items.funds += Number(bets[i].possibleReturn.toFixed(2))
+          this.items.wonAmount += Number(bets[i].possibleReturn.toFixed(2))
         }
+
         this.simulateButton = false
         this.items.clearButton = true
       }
     },
     clearBets() {
-      this.items.totalStake = 0
-      this.items.totalReturn = 0
+      this.items.totalStake = this.items.totalReturn = 0
       this.items.bets = []
       this.simulateButton = true
       this.items.clearButton = false

@@ -749,7 +749,7 @@ export default new Vuex.Store({
     totalReturn: 0,
     wonAmount: 0,
     newMatchModal: false,
-    selectedGame: "",
+    selectedGame: "esport",
   },
   getters: {
     items: (state) => {

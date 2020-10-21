@@ -1,7 +1,11 @@
 <template>
   <div
     class="px-6 text-gray-700"
-    v-show="this.$route.path === '/sport' || this.$route.path === '/esport'"
+    v-show="
+      this.$route.path === '/sport' ||
+        this.$route.path === '/esport' ||
+        this.$route.path === '/'
+    "
   >
     <div
       v-for="description in descriptions"

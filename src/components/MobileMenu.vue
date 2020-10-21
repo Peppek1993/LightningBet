@@ -1,6 +1,6 @@
 <template>
     <div class="text-2xl block sm:hidden">
-        <div class="flex justify-between items-center px-6 py-2 bg-gray-800">
+        <div class="flex justify-between items-center px-6 py-2 bg-gray-800" v-show="firstMenu">
             <router-link to="leaderboard">
                 <div class="text-center font-hairline">
 					<i class="fas fa-trophy cursor-pointer"></i>
@@ -34,7 +34,6 @@
                     <p class="text-xs">Hide</p>
                 </div>
         </div>
-        <transition name="slide-fade">
         <div class="flex justify-around px-6 pb-2 bg-gray-800 font-hairline text-center" v-show="socialMenu">
             <a href="https://github.com/Peppek1993" target="_blank">
                 <div>
@@ -65,9 +64,8 @@
                     <i class="fas fa-newspaper cursor-pointer"></i>
                     <p class="text-xs">Blog</p>
                     </div>
-                </a>
+            </a>
 		</div>
-        </transition>
         <hr class="border-gray-700">
         <div class="flex sm:hidden justify-between px-6 pt-4"> 
             <div v-for="discipline in decideCategory()">
@@ -96,6 +94,7 @@ export default {
     data() {
         return {
             socialMenu: false,
+            firstMenu: true,
         }
     },
     methods: {
@@ -137,7 +136,7 @@ export default {
 }
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateY(-10px);
+  transform: translateY(-50px);
   opacity: 0;
 }
 

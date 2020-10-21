@@ -9,8 +9,8 @@
                     <ul class="min-w-full grid grid-cols-4 bg-gray-800">
                         <li class="col-start-1 col-end-2 text-center flex flex-col justify-center items-center">
                             <div>{{ match.nameA }}</div>
-                            <button class="font-thin bg-gray-900 w-12 sm:w-16 py-1 rounded-md border border-yellow-200 duration-500 hover:bg-yellow-300 hover:text-black" 
-                                @click="showMatchModal(index, 'A')"
+                            <button class="font-thin bg-gray-900 w-12 sm:w-16 py-1 rounded-md border border-yellow-300 duration-500 hover:bg-yellow-300 hover:text-black  focus:outline-none" 
+                                @click="showMatchModal(index, 'A', match.game)"
                             >
                                 {{ match.oddsA }}
                             </button>
@@ -23,7 +23,7 @@
                         </li>
                         <li class="col-start-4 col-end-5 text-center flex flex-col justify-center items-center">
                             <div>{{ match.nameB }}</div>
-                            <button class="font-thin bg-gray-900 w-12 sm:w-16 py-1 rounded-md border border-red-200 duration-500 hover:bg-red-300 hover:text-black"
+                            <button class="font-thin bg-gray-900 w-12 sm:w-16 py-1 rounded-md border border-red-300 duration-500 hover:bg-red-300 hover:text-black focus:outline-none"
                                 @click="showMatchModal(index, 'B')"
                             >
                                 {{ match.oddsB }}
@@ -35,8 +35,8 @@
                     </div>
                 </div>
             </div>
-		<t-modal header="Deposit funds" v-model="matchModal" class="p-10">
-			<div class="flex-col justify-around text-center h-full">
+		<t-modal header="Place your bet" v-model="matchModal" class="p-10">
+			<div class="flex-col justify-around text-center">
 				<p>
 					Team name: {{items.filterMatches[this.matchNumber][`name${activeTeam}`]}}
 				</p>
@@ -58,8 +58,8 @@
 			</div>
 			<template v-slot:footer>
 				<div class="flex justify-between">
-					<button @click="matchModal = !matchModal">Cancel</button>
-					<button @click="placeABet">Place a bet</button>
+					<button @click="matchModal = !matchModal" class="font-hairline">Cancel</button>
+					<button @click="placeABet" class="font-hairline">Place a bet</button>
 				</div>
 			</template>
 		</t-modal>
@@ -85,10 +85,11 @@
 			...mapGetters(['items']),
 		},
 		methods: {
-			showMatchModal(x, y) {
+			showMatchModal(x, y, z) {
 				if (this.items.clearButton == false) {
                     this.matchNumber = x;
-					this.activeTeam = y;
+                    this.activeTeam = y;
+                    this.activeGame = z;
 					this.matchModal = !this.matchModal;
 				} else {
 					alert('Please clear your bets first.');

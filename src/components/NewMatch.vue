@@ -150,7 +150,8 @@
 				) {
 					alert('Please enter correct amount (1-100)');
 				} else {
-					this.items.upcomingMatches.push(newMatch);
+                    this.items.upcomingMatches.unshift(newMatch);
+                    this.filterByType(this.newMatchType)
 					alert(
 						`Match ${this.newMatchNameA} vs ${this.newMatchNameB} has been added.`
 					);

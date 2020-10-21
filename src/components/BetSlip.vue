@@ -2,11 +2,16 @@
 	<div class="col-start-1">
 		<div
 			v-show="!expanded"
-			class="bg-teal-900 flex lg:hidden rounded-md border-2 border-teal-700 fixed bottom-0 w-full sm:w-11/12 h-16 justify-around items-center font-thin sm:ml-16"
+			class=" bg-teal-900 flex lg:hidden rounded-md border-2 border-teal-700 fixed bottom-0 w-full sm:w-11/12 h-16 justify-around items-center font-thin sm:ml-16"
 		>
 			<div>Active bets: {{ items.bets.length }}</div>
 			<div>Total stake: {{ items.totalStake }}$</div>
-			<div>Possible return: {{ items.totalReturn }}$</div>
+            <p v-if="items.clearButton">
+					Won: {{ items.wonAmount.toFixed(2) }}$
+				</p>
+				<p v-if="simulateButton">
+					Expected win: {{ items.totalReturn }}$
+				</p>
 			<div
 				class="border rounded-full p-2 w-24 text-center cursor-pointer hover:bg-teal-700 duration-500"
 				@click="expanded = !expanded"
@@ -15,61 +20,72 @@
 				<i class="fas fa-expand-alt"></i>
 			</div>
 		</div>
-        <div
-			v-show="expanded"
-			class="fixed top-0 z-50 h-full w-full bg-gray-900 py-10 pb-20 overflow-auto inline-block lg:hidden"
-		>
-			<div class="px-4 sm:px-32"></div>
-			<div
-				class="bg-teal-900 flex lg:hidden rounded-md border-2 border-teal-700 fixed bottom-0 w-full h-16 justify-around items-center font-thin"
-			>
-				<div>Active bets: {{ items.bets.length }}</div>
-				<div>Total stake: {{ items.totalStake }}$</div>
-				<div>Possible return: {{ items.totalReturn }}$</div>
+        <div class="bg-gray-900 fixed top-0 z-50 h-full w-full" v-show="expanded">
+            <div
+                v-show="expanded"
+                class="fixed top-0 z-50 h-full w-full patternBackground py-10 pb-20 overflow-auto inline-block lg:hidden"
+            >
+                <div class="px-4 sm:px-32"></div>
                 <div
-					class="border rounded-full p-2 cursor-pointer hover:bg-teal-700 duration-500 w-24 text-center"
-					@click="expanded = !expanded"
-				>
-					Hide
-					<i class="fas fa-compress-alt"></i>
-				</div>
-			</div>
-			<div
-				class="w-64 mx-auto flex justify-center border border-teal-300 rounded-md h-10 hover:bg-teal-700 duration-500 font-light"
-			>
-				<button @click="simulateBet()" v-if="simulateButton">
-					<i class="fas fa-dice"></i>
-					Simulate outcome
-					<i class="fas fa-dice"></i>
-				</button>
-				<button @click="clearBets()" v-if="items.clearButton">
-					<i class="fas fa-dice"></i>
-					Clear bets
-					<i class="fas fa-dice"></i>
-				</button>
-			</div>
-			<div
-				v-for="bet in items.bets"
-				class="p-3 flex-col items-center px-4 sm:px-32"
-			>
-				<div
-					class="border-teal-400 bg-gray-800 border rounded-md flex-col py-2 text-center text-sm font-light w-auto m-auto"
-					:class="bet.result"
-				>
-					<h1 class="text-xs font-hairline">
-						{{ bet.teamA }}
-						vs
-						{{ bet.teamB }}
-					</h1>
-					<p>Winner: {{ bet.winner }}</p>
-					<p>
-						Stake: {{ (bet.possibleReturn / bet.odds).toFixed(2) }}$
-					</p>
-					<p>Odds: {{ bet.odds }}</p>
-					<p>Potential win: {{ bet.possibleReturn.toFixed(2) }}$</p>
-				</div>
-			</div>
-		</div>
+                    class=" bg-teal-900 flex lg:hidden rounded-md border-2 border-teal-700 fixed bottom-0 w-full h-16 justify-around items-center font-thin"
+                >
+                    <div>Active bets: {{ items.bets.length }}</div>
+                    <div>Total stake: {{ items.totalStake }}$</div>
+                    <p v-if="items.clearButton">
+                        Won: {{ items.wonAmount.toFixed(2) }}$
+                    </p>
+                    <p v-if="simulateButton">
+                        Expected win: {{ items.totalReturn }}$
+                    </p>
+                    <div
+                        class="border rounded-full p-2 cursor-pointer hover:bg-teal-700 duration-500 w-24 text-center"
+                        @click="expanded = !expanded"
+                    >
+                        Hide
+                        <i class="fas fa-compress-alt"></i>
+                    </div>
+                </div>
+                <div
+                    class="w-64 mx-auto flex justify-center border border-teal-300 rounded-md h-10 hover:bg-teal-700 duration-500 font-light"
+                >
+                    <button @click="simulateBet()" v-if="simulateButton" class="w-full focus:outline-none">
+                        <i class="fas fa-dice"></i>
+                        Simulate outcome
+                        <i class="fas fa-dice"></i>
+                    </button>
+                    <button @click="clearBets()" v-if="items.clearButton" class="w-full focus:outline-none">
+                        <i class="fas fa-dice"></i>
+                        Clear bets
+                        <i class="fas fa-dice"></i>
+                    </button>
+                </div>
+                <p v-if="items.bets.length == 0"
+                    class="px-6 h-full font-hairline py-64 text-center">
+                    You are currently not betting on any matches. Go to main page and try placing some bets!
+                    </p>
+                <div
+                    v-for="bet in items.bets"
+                    class="p-3 flex-col items-center px-4 sm:px-32"
+                >
+                    <div
+                        class="border-teal-400 bg-gray-800 border rounded-md flex-col py-2 text-center text-sm font-light w-auto m-auto"
+                        :class="bet.result"
+                    >
+                        <h1 class="text-xs font-hairline">
+                            {{ bet.teamA }}
+                            vs
+                            {{ bet.teamB }}
+                        </h1>
+                        <p>Winner: {{ bet.winner }}</p>
+                        <p>
+                            Stake: {{ (bet.possibleReturn / bet.odds).toFixed(2) }}$
+                        </p>
+                        <p>Odds: {{ bet.odds }}</p>
+                        <p>Potential win: {{ bet.possibleReturn.toFixed(2) }}$</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
 </template>
 

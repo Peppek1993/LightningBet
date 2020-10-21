@@ -1,7 +1,7 @@
 <template>
-	<div class="pb-20">
+	<div class="pb-32 sm:pb-4">
 		<app-description></app-description>
-		<div class="mt-10 bg-gray-700 flex justify-between items-center font-thin">
+		<div class="mt-10 bg-gray-700 flex justify-between items-center font-thin px-6 py-2">
 			<img
 				src="../assets/main_logo.svg"
 				alt="Lightning Bet Logo"

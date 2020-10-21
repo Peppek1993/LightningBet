@@ -14,12 +14,12 @@ const theme = {
         fixedClasses: {
             overlay: 'z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-opacity-50',
             wrapper: 'z-50 relative mx-auto my-0 max-w-lg mt-12 shadow-xl',
-            modal: 'bg-gray-700 text-white shadow overflow-hidden relative rounded-md',
+            modal: 'bg-gray-800 text-white shadow overflow-hidden relative rounded-md font-hairline border border-teal-700',
             body: 'p-4',
-            header: 'p-4 border-b text-sm font-semibold uppercase',
-            footer: 'p-2 border-t',
+            header: 'p-4 border-b border-teal-700 text-sm font-hairline uppercase',
+            footer: 'p-2 border-t border-teal-700 text-sm font-hairline',
             close: 'absolute right-0 top-0 m-3',
-            closeIcon: 'h-5 w-5 fill-current'
+            closeIcon: 'h-5 w-5 text-teal-700'
         },
         classes: {
             overlay: 'bg-black ',
@@ -27,7 +27,7 @@ const theme = {
             modal: '',
             header: 'text-white',
             footer: '',
-            close: 'text-white hover:text-teal-600',
+            close: 'text-white',
             closeIcon: ''
         },
     },

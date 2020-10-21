@@ -1,20 +1,20 @@
 <template>
-	<div class="col-start-1 col-end-6 row-start-1 row-end-2 z-50 shadow-layout flex items-center justify-between px-6 sm:px-0">
-		<div>
+	<div class="col-start-1 col-end-6 z-50 shadow-layout grid grid-cols-6 sm:flex items-center justify-between px-6 sm:px-0">
+		<div class="col-start-1 col-end-3">
 			<router-link to="/esport">
 				<img
 					src="../assets/main_logo.svg"
 					alt="Lightning Bet Logo"
 					@click="filterByType('esport')"
-					class="w-full h-12 sm:px-3 duration-500 hover:bg-gray-800 rounded-lg"
+					class=" sm:w-full h-12 sm:px-3 duration-500 hover:bg-gray-800 rounded-lg"
 				/>
 			</router-link>
 		</div>
-		<div class="flex font-hairline text-center">
+		<div class="flex col-start-3 col-end-5 justify-center font-hairline text-center">
 			<router-link to="/esport">
 				<div
 					@click="filterByType('esport')"
-					class=" hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-lg sm:text-sm tracking-wide hover:text-teal-400 cursor-pointer"
+					class=" hover:bg-gray-800 duration-500 px-2 sm:px-4 py-2 rounded-md md:text-lg sm:text-sm tracking-wide hover:text-teal-400 cursor-pointer"
 				>
 					<i class="fas fa-gamepad hidden sm:inline-block"></i>
 					Esport
@@ -23,7 +23,7 @@
 			<router-link to="/sport">
 				<div
 					@click="filterByType('sport')"
-					class="hover:bg-gray-800 duration-500 px-2 sm:px-4 sm:py-2 rounded-md md:text-lg sm:text-sm tracking-wide hover:text-teal-400 cursor-pointer"
+					class="hover:bg-gray-800 duration-500 px-2 sm:px-4 py-2 rounded-md md:text-lg sm:text-sm tracking-wide hover:text-teal-400 cursor-pointer"
 				>
 					<i class="fas fa-futbol hidden sm:inline-block"></i>
 					Sport
@@ -37,7 +37,7 @@
 				Games
 			</div>
 		</div>
-		<div class="flex col-start-3 col-end-4 items-center justify-end font-hairline">
+		<div class="flex col-start-5 col-end-7 items-center justify-end font-hairline">
 			<div class="text-center text-xl px-2">{{ displayFunds() }}$</div>
 			<div
 				class="text-sm py-5 sm:py-5 md:py-4 pr-2 md:text-xl sm:text-sm"
@@ -52,13 +52,13 @@
 				</a>
 			</div>
 		</div>
-		<t-modal header="Deposit funds" v-model="depositModal">
-			<div class="flex justify-between text-center p-2 items-center">
+		<t-modal header="Deposit funds" v-model="depositModal" class="p-10">
+			<div class="flex justify-between text-center items-center">
 				<div class="flex">
 					<p>Payment method:</p>
 					<i
 						v-for="method in items.paymentMethods"
-						class="fab py-2 pr-2 text-4xl cursor-pointer paymentMethod"
+						class="fab py-2 px-1 text-4xl cursor-pointer paymentMethod"
 						:class="method"
 						@click="makeActive"
 					/>
@@ -68,7 +68,7 @@
 					<select
 						id="amount"
 						name="amount"
-						class="text-black p-1 text-xl rounded-md focus:outline-none"
+						class="text-black p-1 text-lg rounded-md focus:outline-none"
 						v-model="depositAmount"
 					>
 						<option value="5">5$</option>
@@ -82,8 +82,8 @@
 			</div>
 			<template v-slot:footer>
 				<div class="flex justify-between">
-					<button class="bg-">Cancel</button>
-					<button @click="depositCommit">Deposit</button>
+					<button class="font-hairline">Cancel</button>
+					<button @click="depositCommit" class="font-hairline">Deposit</button>
 				</div>
 			</template>
 		</t-modal>
@@ -140,7 +140,7 @@
 		},
 		data() {
 			return {
-				depositModal: false,
+				depositModal: true,
 				depositAmount: 5,
 			};
         },

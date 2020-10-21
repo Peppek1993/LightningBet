@@ -20,7 +20,7 @@ Lightning Bet is a prototype for an esport/sport betting website. You can place 
 ## Demo
 
 Landing page
-![Desktop version](./assets/desktop.png)
+![Desktop version](./../assets/desktop.png)
 
 Mobile landing page
 ![Mobile version](./assets/mobile.png)

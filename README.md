@@ -1,6 +1,6 @@
 # Lightning Bet - a betting website
 
-![Mobile version](./assets/header.png)
+![Mobile version](https://user-images.githubusercontent.com/58306082/96770895-40c2a700-13e1-11eb-9054-44029cf3879b.png)
 
 ## Table of content
 
@@ -20,7 +20,7 @@ Lightning Bet is a prototype for an esport/sport betting website. You can place 
 ## Demo
 
 Landing page
-![Desktop version](./../assets/desktop.png)
+![Desktop version](https://user-images.githubusercontent.com/58306082/96771014-6a7bce00-13e1-11eb-8fd4-395ffab67491.png)
 
 Mobile landing page
-![Mobile version](./assets/mobile.png)
+![Mobile version](https://user-images.githubusercontent.com/58306082/96771005-694aa100-13e1-11eb-8b9d-c545d0842085.png)

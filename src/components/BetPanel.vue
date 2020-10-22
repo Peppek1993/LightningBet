@@ -7,12 +7,10 @@
     <div class="hidden lg:inline-block">
       <div v-for="bet in items.bets" class="p-3 flex-col w-full px-5">
         <div
-          class="border-teal-400 bg-gray-800 border rounded-md flex-col px-3 py-1 text-center text-sm font-light"
+          class="border-teal-400 bg-gray-800 border rounded-md flex-col px-3 py-1 text-center font-hairline"
           :class="bet.result"
         >
-          <h1 class="text-xs font-hairline">
-            {{ bet.teamA }} vs {{ bet.teamB }}
-          </h1>
+          <h1 class=" font-hairline">{{ bet.teamA }} vs {{ bet.teamB }}</h1>
           <p>Winner: {{ bet.winner }}</p>
           <p>Stake: {{ (bet.possibleReturn / bet.odds).toFixed(2) }}$</p>
           <p>Odds: {{ bet.odds }}</p>

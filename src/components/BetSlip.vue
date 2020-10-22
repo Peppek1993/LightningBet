@@ -72,10 +72,10 @@
           class="p-3 flex-col items-center px-4 sm:px-32"
         >
           <div
-            class="border-teal-400 bg-gray-800 border rounded-md flex-col py-2 text-center text-sm font-light w-auto m-auto"
+            class="border-teal-400 bg-gray-800 border rounded-md flex-col py-2 text-center font-light w-auto m-auto"
             :class="bet.result"
           >
-            <h1 class="text-xs font-hairline">
+            <h1 class=" font-hairline">
               {{ bet.teamA }}
               vs
               {{ bet.teamB }}

@@ -77,11 +77,11 @@
           {{ items.filterMatches[this.matchNumber][`odds${activeTeam}`] }}
         </div>
         <div class="flex justify-center">
-          <p class="pr-2">Enter bet amount</p>
+          <p class="pr-2 py-1">Enter bet amount</p>
           <input
             type="number"
             placeholder="$"
-            class="text-black w-16 h-6 rounded-md outline-none"
+            class="text-black w-16 h-6 rounded-md outline-none text-lg px-1 py-4"
             v-model="betAmount"
           />
         </div>

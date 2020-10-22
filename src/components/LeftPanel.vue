@@ -158,8 +158,7 @@ export default {
       let filteredMatches = this.items.upcomingMatches.filter(function(match) {
         return match.game == gameType
       })
-      let amount = filteredMatches.length
-      return amount
+      return filteredMatches.length
     },
   },
   computed: {

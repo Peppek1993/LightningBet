@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen grid wrapper cursor-default">
+  <div class="h-screen w-screen grid wrapper cursor-default">
     <app-header></app-header>
     <app-left-panel></app-left-panel>
     <app-content></app-content>

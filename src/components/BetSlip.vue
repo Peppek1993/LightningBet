@@ -42,7 +42,7 @@
           class="w-64 mx-auto flex justify-center border border-teal-300 rounded-md h-10 hover:bg-teal-700 duration-500 font-light"
         >
           <button
-            @click="simulateBet()"
+            @click="simulateBet"
             v-if="simulateButton"
             class="w-full focus:outline-none"
           >
@@ -51,7 +51,7 @@
             <i class="fas fa-dice"></i>
           </button>
           <button
-            @click="clearBets()"
+            @click="clearBets"
             v-if="items.clearButton"
             class="w-full focus:outline-none"
           >
@@ -105,11 +105,11 @@ export default {
   },
   methods: {
     simulateBet() {
+      let bets = this.items.bets
       this.items.wonAmount = 0
       this.items.lostBets = this.items.wonBets = []
-      let bets = this.items.bets
       if (bets.length < 1) {
-        this.$notify({
+        return this.$notify({
           group: "bet",
           text: "Place some bets first.",
         })

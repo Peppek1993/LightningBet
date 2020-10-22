@@ -28,7 +28,7 @@
         <p v-if="simulateButton">Expected win: {{ items.totalReturn }}$</p>
         <button
           class="p-1 border border-teal-300 rounded-md h-10 hover:bg-teal-700 duration-500 font-light"
-          @click="simulateBet()"
+          @click="simulateBet"
           v-if="simulateButton"
         >
           <i class="fas fa-dice"></i>
@@ -37,7 +37,7 @@
         </button>
         <button
           class="p-1 border border-teal-300 rounded-md h-10 hover:bg-teal-700 duration-500 font-light"
-          @click="clearBets()"
+          @click="clearBets"
           v-if="items.clearButton"
         >
           <i class="fas fa-dice"></i>
@@ -63,28 +63,27 @@ export default {
   },
   methods: {
     simulateBet() {
+      let bets = this.items.bets
       this.items.wonAmount = 0
       this.items.lostBets = this.items.wonBets = []
-      let bets = this.items.bets
       if (bets.length < 1) {
-        this.$notify({
+        return this.$notify({
           group: "bet",
           text: "Place some bets first.",
         })
-      } else {
-        for (let i = 0; i < bets.length; i++) {
-          let x = Math.random()
-          if (x > bets[i].chance) {
-            this.items.lostBets.push(bets[i])
-            bets[i].result = "bg-red-700"
-            this.betsKey += 1
-          } else {
-            this.items.wonBets.push(bets[i])
-            bets[i].result = "bg-green-700"
-            this.betsKey += 1
-            this.items.funds += Number(bets[i].possibleReturn.toFixed(2))
-            this.items.wonAmount += Number(bets[i].possibleReturn.toFixed(2))
-          }
+      }
+      for (let i = 0; i < bets.length; i++) {
+        let x = Math.random()
+        if (x > bets[i].chance) {
+          this.items.lostBets.push(bets[i])
+          bets[i].result = "bg-red-700"
+          this.betsKey += 1
+        } else {
+          this.items.wonBets.push(bets[i])
+          bets[i].result = "bg-green-700"
+          this.betsKey += 1
+          this.items.funds += Number(bets[i].possibleReturn.toFixed(2))
+          this.items.wonAmount += Number(bets[i].possibleReturn.toFixed(2))
         }
         this.simulateButton = false
         this.items.clearButton = true

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="px-6 text-gray-700"
+    class="px-6 text-gray-600"
     v-show="
       this.$route.path === '/sport' ||
         this.$route.path === '/esport' ||

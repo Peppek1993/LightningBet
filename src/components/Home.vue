@@ -1,5 +1,7 @@
 <template>
-  <div class="h-screen w-screen grid wrapper cursor-default">
+  <div
+    class="h-screen grid sm:grid-rows-wrapperRows sm:grid-cols-wrapperColumns cursor-default"
+  >
     <app-header></app-header>
     <app-left-panel></app-left-panel>
     <app-content></app-content>
@@ -30,11 +32,6 @@ export default {
 </script>
 
 <style>
-.wrapper {
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 4rem 10rem 1fr 10rem 4rem;
-}
-
 ::-webkit-scrollbar {
   width: 3px;
 } /* Track */

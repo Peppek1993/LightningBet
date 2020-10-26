@@ -92,7 +92,7 @@
           >
             <img
               :src="require(`../assets/games/${discipline.tag}_logo_32.svg`)"
-              class="w-12 h-12 p-2"
+              class="w-12 h-12"
             />
           </div>
         </router-link>

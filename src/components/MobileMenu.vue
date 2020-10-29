@@ -87,12 +87,12 @@
         <router-link :to="discipline.type">
           <div
             @click="filterByGame(discipline.tag)"
-            class="hover:bg-gray-600 hover:bg-opacity-25 border rounded-lg px-4 cursor-pointer duration-300"
+            class="hover:bg-gray-600 hover:bg-opacity-25 border rounded-lg px-4 py-2 cursor-pointer duration-300"
             :class="discipline.borderColor"
           >
             <img
               :src="require(`../assets/games/${discipline.tag}_logo_32.svg`)"
-              class="w-12 h-12"
+              class="w-8 h-8"
             />
           </div>
         </router-link>
